@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naukri Automation Dashboard - S Gokul Krishna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --primary: #38bdf8;
+            --accent: #818cf8;
+            --success: #34d399;
+            --warning: #fbbf24;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 30px;
+            background-image: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 10px;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .table-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .score-high {
+            background: rgba(52, 211, 153, 0.2);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+        .badge-success {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .badge-info {
+            background: rgba(129, 140, 248, 0.2);
+            color: #818cf8;
+        }
+        .tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            color: #cbd5e1;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            margin-right: 4px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .btn-apply {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+        }
+        .btn-apply:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Naukri Job Intelligence & Automation Dashboard</h1>
+                <div class="subtitle">Candidate: <strong>S Gokul Krishna</strong> | DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL)</div>
+            </div>
+            <div style="text-align: right; color: var(--text-sub); font-size: 0.85rem;">
+                Last Generated: September 15, 2026 - 07:03 AM
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Auto-Applied Today</div>
+                <div class="stat-value">69</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Recommended External Jobs</div>
+                <div class="stat-value" style="color: var(--accent);">188</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Profile Visibility Status</div>
+                <div class="stat-value" style="color: var(--success); font-size: 1.3rem; margin-top: 15px;">🟢 Active Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">DevOps & Backend Ratio</div>
+                <div class="stat-value" style="font-size: 1.4rem; color: #f472b6; margin-top: 15px;">
+                    20 DevOps / 24 Backend
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">🌟 High-Priority External Jobs (Manual Apply Recommended)</div>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Match Score</th>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Skill Tags</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td><span class="badge score-high">98% Match</span></td>
+            <td><strong>DevOps Engineer - CI/CD, Python, SAP BTP</strong></td>
+            <td>Brigosha Technologies</td>
+            <td><span class="tag">DevOps</span><span class="tag">Python</span><span class="tag">CI/CD</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-ci-cd-python-sap-btp-brigosha-technologies-bengaluru-2-to-5-years-310826500904" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">98% Match</span></td>
+            <td><strong>DevOps Engineer - CI/CD, Python, SAP BTP</strong></td>
+            <td>Brigosha Technologies</td>
+            <td><span class="tag">DevOps</span><span class="tag">Python</span><span class="tag">CI/CD</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-ci-cd-python-sap-btp-brigosha-technologies-bengaluru-2-to-5-years-310826500904?src=directSearch&sid=17894542580673342&xp=4&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">95% Match</span></td>
+            <td><strong>Devops Engineer(CI/CD)</strong></td>
+            <td>Telloquent</td>
+            <td><span class="tag">DevOps</span><span class="tag">CI/CD</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">95% Match</span></td>
+            <td><strong>Devops Engineer(CI/CD)</strong></td>
+            <td>Telloquent</td>
+            <td><span class="tag">DevOps</span><span class="tag">CI/CD</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530?src=directSearch&sid=17894542580673342&xp=8&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Python Backend Developer</strong></td>
+            <td>BSH Technologies</td>
+            <td><span class="tag">Python</span><span class="tag">Backend</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-backend-developer-bsh-technologiesa-remote-1-to-4-years-210126502820" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Rupstech</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-rupstech-private-limited-bengaluru-1-to-5-years-110926501324" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Rupstech</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-rupstech-private-limited-bengaluru-1-to-5-years-110926501324?src=directSearch&sid=17894542580673342&xp=2&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Alrium</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-alrium-bengaluru-2-to-6-years-140926500976" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Alrium</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-alrium-bengaluru-2-to-6-years-140926500976?src=directSearch&sid=17894542580673342&xp=3&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Apcell Infotech</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-ap-cell-infotech-pvt-ltd-bengaluru-2-to-5-years-230626501496" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Apcell Infotech</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-ap-cell-infotech-pvt-ltd-bengaluru-2-to-5-years-230626501496?src=directSearch&sid=17894542580673342&xp=5&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Sigma Allied Services</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-sigma-allied-services-private-limited-bengaluru-2-to-6-years-200726500538" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Sigma Allied Services</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-sigma-allied-services-private-limited-bengaluru-2-to-6-years-200726500538?src=directSearch&sid=17894542580673342&xp=6&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Coverself Technologies</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-coverself-technologies-bengaluru-0-to-6-years-030826504172" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Coverself Technologies</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-coverself-technologies-bengaluru-0-to-6-years-030826504172?src=directSearch&sid=17894542580673342&xp=7&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Dautom</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-dautom-bengaluru-2-to-6-years-190224502108" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Dautom</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-dautom-bengaluru-2-to-6-years-190224502108?src=directSearch&sid=17894542580673342&xp=9&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Coderound Ai</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-coderound-ai-bengaluru-2-to-4-years-110826503742" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Coderound Ai</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-coderound-ai-bengaluru-2-to-4-years-110826503742?src=directSearch&sid=17894542580673342&xp=10&px=1" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">85% Match</span></td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Auric Ai Labs</td>
+            <td><span class="tag">DevOps</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-auric-ai-labs-bengaluru-0-to-2-years-270726503954" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title">🤖 Today's Auto-Applied Naukri Jobs</div>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:01:27</td>
+            <td><strong>Python Developer</strong></td>
+            <td>Recruito</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-recruito-bengaluru-2-to-5-years-110926023845" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:02:16</td>
+            <td><strong>Python developer with RAG , Langraph ,Langchain</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-with-rag-langraph-langchain-infosys-limited-bengaluru-2-to-5-years-140926915642" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:02:25</td>
+            <td><strong>Python developer with RAG , Langraph ,Langchain</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-with-rag-langraph-langchain-infosys-limited-bengaluru-2-to-5-years-140926915642?src=directSearch&sid=17894538597412464&xp=19&px=1" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:02:34</td>
+            <td><strong>Python developer (Female's Preferred)</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-female-s-preferred-infosys-hyderabad-pune-bengaluru-2-to-5-years-240826031542" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:02:41</td>
+            <td><strong>Python developer (Female's Preferred)</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-female-s-preferred-infosys-hyderabad-pune-bengaluru-2-to-5-years-240826031542?src=directSearch&sid=17894538597412464&xp=20&px=1" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:03:36</td>
+            <td><strong>Python developer</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-infosys-hyderabad-pune-bengaluru-3-to-5-years-050826011769" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:03:43</td>
+            <td><strong>Python developer</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-infosys-hyderabad-pune-bengaluru-3-to-5-years-050826011769?src=directSearch&sid=1789453966615973&xp=19&px=2" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:03:50</td>
+            <td><strong>Python developer</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-infosys-pune-chennai-bengaluru-3-to-5-years-050826011728" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:03:57</td>
+            <td><strong>Python developer</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-infosys-pune-chennai-bengaluru-3-to-5-years-050826011728?src=directSearch&sid=1789453966615973&xp=20&px=2" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:05:14</td>
+            <td><strong>Python Developer</strong></td>
+            <td>Leading Client</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-tekskills-india-private-limited-bengaluru-2-to-5-years-210826910817" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:05:21</td>
+            <td><strong>Python Developer</strong></td>
+            <td>Leading Client</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-tekskills-india-private-limited-bengaluru-2-to-5-years-210826910817?src=directSearch&sid=17894540435694738&xp=12&px=3" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:05:30</td>
+            <td><strong>Python Developer with AI</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-with-ai-infosys-pune-chennai-bengaluru-2-to-5-years-030826024194" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:05:38</td>
+            <td><strong>Python Developer with AI</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-with-ai-infosys-pune-chennai-bengaluru-2-to-5-years-030826024194?src=directSearch&sid=17894540435694738&xp=13&px=3" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:06:09</td>
+            <td><strong>Python Developer (Gen AI)</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-gen-ai-infosys-hyderabad-chennai-bengaluru-3-to-5-years-040826033701" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:06:16</td>
+            <td><strong>Python Developer (Gen AI)</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-gen-ai-infosys-hyderabad-chennai-bengaluru-3-to-5-years-040826033701?src=directSearch&sid=17894540435694738&xp=18&px=3" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:07:02</td>
+            <td><strong>Python Developer</strong></td>
+            <td>Tata Consultancy Services</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-tata-consultancy-services-pune-bengaluru-mumbai-all-areas-4-to-6-years-150926006965" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:07:09</td>
+            <td><strong>Python Developer</strong></td>
+            <td>Tata Consultancy Services</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-tata-consultancy-services-pune-bengaluru-mumbai-all-areas-4-to-6-years-150926006965?src=directSearch&sid=17894541918686035&xp=5&px=4" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:07:32</td>
+            <td><strong>Python Developer</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-infosys-hyderabad-pune-bengaluru-5-to-8-years-110926010940" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:07:45</td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Optimiser</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-optimiser-crm-chennai-bengaluru-delhi-ncr-1-to-4-years-140926905224" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:07:55</td>
+            <td><strong>DevOps Engineer</strong></td>
+            <td>Optimiser</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-optimiser-crm-chennai-bengaluru-delhi-ncr-1-to-4-years-140926905224?src=directSearch&sid=17894542580673342&xp=1&px=1" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:09:59</td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Robotico Digital Llp</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-robotico-digital-llp-bengaluru-3-to-4-years-170826011452" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:10:06</td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Robotico Digital Llp</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-robotico-digital-llp-bengaluru-3-to-4-years-170826011452?src=directSearch&sid=17894543859171003&xp=4&px=2" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:10:12</td>
+            <td><strong>Devops Engineer- Pan India</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-pan-india-infosys-hyderabad-chennai-bengaluru-3-to-8-years-050826031235" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:10:21</td>
+            <td><strong>Devops Engineer- Pan India</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-pan-india-infosys-hyderabad-chennai-bengaluru-3-to-8-years-050826031235?src=directSearch&sid=17894543859171003&xp=6&px=2" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:10:47</td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-infosys-pune-chennai-bengaluru-3-to-8-years-060826013113" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:10:54</td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-infosys-hyderabad-chennai-bengaluru-3-to-8-years-060826013086" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:11:01</td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-infosys-hyderabad-chennai-bengaluru-3-to-8-years-060826013086?src=directSearch&sid=17894543859171003&xp=14&px=2" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:11:10</td>
+            <td><strong>AI DevOps Engineer</strong></td>
+            <td>AMS</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-ai-devops-engineer-ams-mumbai-pune-bengaluru-3-to-9-years-270826030309" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:11:17</td>
+            <td><strong>AI DevOps Engineer</strong></td>
+            <td>AMS</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-ai-devops-engineer-ams-mumbai-pune-bengaluru-3-to-9-years-270826030309?src=directSearch&sid=17894543859171003&xp=15&px=2" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-09-15 12:11:44</td>
+            <td><strong>Devops Engineer</strong></td>
+            <td>Litmus7 Systems Consulting</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">DRY_RUN_APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-litmus7-systems-consulting-kochi-bengaluru-7-to-10-years-230226015591" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
