@@ -11,7 +11,7 @@
     "notice_period_days": 30,
     "current_ctc_lpa": "6",
     "expected_ctc_lpa": "12",
-    "target_goal_ctc": ">10 LPA (Target: 10 - 15 LPA)",
+    "target_goal_ctc": ">= 10 LPA (No upper limit — 15, 20, 25+ LPA fully included)",
     "skills": [
       "Python",
       "FastAPI",
