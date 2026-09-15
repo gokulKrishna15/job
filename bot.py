@@ -260,20 +260,31 @@ def apply_to_jobs(page, config, dry_run=False):
                 if total_applied >= daily_limit or kw_applied >= per_keyword_cap:
                     break
                     
-                search_url = f"https://www.naukri.com/{kw_slug}-jobs-in-{loc_slug}?experience={exp}&pageNo={page_num}"
+                import urllib.parse
+                kw_encoded = urllib.parse.quote(kw)
+                search_url = f"https://www.naukri.com/jobs-in-{loc_slug}?k={kw_encoded}&experience={exp}&pageNo={page_num}"
                 print(f"\n[SEARCH: '{kw}' | Page {page_num}] Querying in '{loc}' -> {search_url}")
 
                 try:
                     page.goto(search_url, wait_until="domcontentloaded")
                     page.wait_for_timeout(3500)
                     
+                    try:
+                        page.wait_for_selector("div.cust-job-tuple, article.jobTuple, div.srp-jobtuple-wrapper, a.title", timeout=7000)
+                    except Exception:
+                        pass
+
                     # Extract job tuples (title, company, link)
-                    job_cards = page.query_selector_all("div.cust-job-tuple, article.jobTuple, div.srp-jobtuple-wrapper")
+                    job_cards = page.query_selector_all("div.cust-job-tuple, article.jobTuple, div.srp-jobtuple-wrapper, div.jobTupleWrapper, div.tuple")
                     if not job_cards:
-                        print(f"[SEARCH] No more jobs found on page {page_num} for '{kw}'.")
-                        break
-                        
-                    print(f"[SEARCH] Found {len(job_cards)} jobs on page {page_num} for '{kw}'.")
+                        # Fallback query for titles if card wrappers differ
+                        title_links = page.query_selector_all("a.title")
+                        if not title_links:
+                            print(f"[SEARCH] No more jobs found on page {page_num} for '{kw}'.")
+                            break
+                        print(f"[SEARCH] Found {len(title_links)} title links on page {page_num} for '{kw}'.")
+                    else:
+                        print(f"[SEARCH] Found {len(job_cards)} job cards on page {page_num} for '{kw}'.")
                     
                     for card in job_cards:
                         if total_applied >= daily_limit or kw_applied >= per_keyword_cap:
@@ -414,14 +425,20 @@ def main():
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=is_headless,
-            slow_mo=config.get("slow_mo_ms", 500),
-            args=["--disable-blink-features=AutomationControlled"]
+            slow_mo=config.get("slow_mo_ms", 300),
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--window-size=1920,1080"
+            ]
         )
         
         # Load saved persistent context
         context = browser.new_context(
             storage_state=str(AUTH_FILE),
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            viewport={"width": 1920, "height": 1080},
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
         )
         page = context.new_page()
 
