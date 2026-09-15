@@ -1,22 +1,22 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: September 15, 2026 - 08:46 AM  
+**Date**: September 15, 2026 - 11:21 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
 
 ## 📈 Executive Summary
 
-- **Total Jobs Auto-Applied Today**: `186`
-- **Recommended High-Match External Jobs**: `739`
+- **Total Jobs Auto-Applied Today**: `232`
+- **Recommended High-Match External Jobs**: `1405`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
-- **DevOps Roles**: 42
+- **DevOps Roles**: 48
 - **Backend Developer Roles**: 18
 - **FastAPI Developer Roles**: 0
-- **Python Developer Roles**: 38
-- **Platform & Full Stack Roles**: 0
-- **Software Engineering Roles**: 88
+- **Python Developer Roles**: 40
+- **Platform & Full Stack Roles**: 2
+- **Software Engineering Roles**: 124
 
 ---
 
@@ -35,15 +35,15 @@
 | **98%** | Devops Engineer (Platform System Engineer) | Aternity It Services | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-platform-system-engineer-aternity-it-services-bengaluru-2-to-6-years-300725502352?src=directSearch&sid=17894599302643387&xp=7&px=4) |
 | **98%** | Full Stack Developer (Backend-Focused | MERN + Python) | Galaxeye Space | `Python, Backend, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-developer-backend-focused-mern-python-galaxeye-space-bengaluru-2-to-6-years-120526502354) |
 | **98%** | Full Stack Developer (Backend-Focused | MERN + Python) | Galaxeye Space | `Python, Backend, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-developer-backend-focused-mern-python-galaxeye-space-bengaluru-2-to-6-years-120526502354?src=directSearch&sid=17894604613297620&xp=1&px=4) |
-| **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
-| **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530?src=directSearch&sid=17894542580673342&xp=8&px=1) |
-| **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
-| **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530?src=directSearch&sid=17894595478646449&xp=8&px=1) |
-| **95%** | Backend Developer (Django, Python, Celery, AWS) | Credy | `Python, Backend, AWS` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-django-python-celery-aws-credy-bengaluru-1-to-5-years-211123500119) |
+| **98%** | DevOps Engineer - CI/CD, Python, SAP BTP | Brigosha Technologies | `DevOps, Python, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-python-sap-btp-brigosha-technologies-bengaluru-2-to-5-years-310826500904) |
+| **98%** | DevOps Engineer - CI/CD, Python, SAP BTP | Brigosha Technologies | `DevOps, Python, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-python-sap-btp-brigosha-technologies-bengaluru-2-to-5-years-310826500904?src=directSearch&sid=17894682406354567&xp=4&px=1) |
+| **98%** | DevOps Engineer (AI Platform) | Zensar | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ai-platform-zensar-technologies-pune-bengaluru-2-to-6-years-140926502347) |
+| **98%** | DevOps Engineer (AI Platform) | Zensar | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ai-platform-zensar-technologies-pune-bengaluru-2-to-6-years-140926502347?src=directSearch&sid=17894683418581116&xp=9&px=2) |
+| **98%** | CI/CD - DevOps Software Engineer | Arivon Technologies | `DevOps, Software Eng, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-ci-cd-devops-software-engineer-arivon-technologies-bengaluru-2-to-6-years-190924501307) |
 
 ---
 
-## 🤖 Auto-Applied Naukri Jobs (186)
+## 🤖 Auto-Applied Naukri Jobs (232)
 
 | Time | Job Title | Company | Location | Status | Link |
 | :--- | :--- | :--- | :--- | :---: | :--- |
