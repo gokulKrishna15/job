@@ -1,0 +1,12 @@
+# Security: Ignore authentication state and session cookies
+auth/storage_state.json
+auth/*.json
+
+# Ignore local database and python cache
+*.db
+__pycache__/
+*.pyc
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
