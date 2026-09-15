@@ -1,0 +1,64 @@
+name: Daily Automated Naukri Job Applicator & Intelligence Report
+
+on:
+  schedule:
+    # Runs daily at 03:30 AM UTC (9:00 AM IST)
+    - cron: '30 3 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Mobile App or Web anytime
+
+jobs:
+  run-naukri-bot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies & Playwright
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install chromium
+
+      - name: Restore Session Authentication
+        env:
+          NAUKRI_STORAGE_STATE: ${{ secrets.NAUKRI_STORAGE_STATE }}
+        run: |
+          mkdir -p auth
+          if [ -n "$NAUKRI_STORAGE_STATE" ]; then
+            echo "$NAUKRI_STORAGE_STATE" > auth/storage_state.json
+            echo "Session state restored from GitHub Secrets."
+          else
+            echo "No GitHub Secret session state found. Ensure storage_state.json is saved or added to secrets."
+          fi
+
+      - name: Run Naukri Auto-Apply Bot (Headless)
+        run: |
+          python bot.py --headless
+
+      - name: Generate Intelligence Reports & Web Dashboard
+        run: |
+          python reporter.py
+          python publish_report.py
+
+      - name: Commit & Push Log Updates
+        run: |
+          git config --global user.name 'Naukri Cloud Bot'
+          git config --global user.email 'bot@naukri-auto.local'
+          git add logs/ reports/ docs/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update daily job reports [skip ci]" && git push)
+
+      - name: Deploy Dashboard to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs

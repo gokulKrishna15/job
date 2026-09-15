@@ -1,0 +1,76 @@
+{
+  "user_profile": {
+    "name": "S Gokul Krishna",
+    "email": "gokulkrishna3567@gmail.com",
+    "phone": "+918861212836",
+    "location": "Bengaluru",
+    "headline": "DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL)",
+    "total_experience_years": 2,
+    "current_location": "Bengaluru",
+    "preferred_location": "Bengaluru",
+    "notice_period_days": 30,
+    "current_ctc_lpa": "6",
+    "expected_ctc_lpa": "10",
+    "target_goal_ctc": "10 LPA",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "DevOps",
+      "MLOps",
+      "REST API",
+      "Nginx",
+      "Redis",
+      "RabbitMQ"
+    ]
+  },
+  "keywords": [
+    "Python Developer",
+    "DevOps Engineer",
+    "FastAPI Developer",
+    "MLOps Engineer",
+    "Backend Developer",
+    "Data Engineer",
+    "Cloud Infrastructure Engineer"
+  ],
+  "negative_keywords": [
+    "Java",
+    "Spring",
+    "C++",
+    ".NET",
+    "ASP.NET",
+    "C#",
+    "PHP",
+    "Angular",
+    "Ruby",
+    "Android",
+    "iOS",
+    "Salesforce"
+  ],
+  "locations": [
+    "Bengaluru",
+    "Bangalore",
+    "Remote"
+  ],
+  "experience_years": 2,
+  "daily_apply_limit": 100,
+  "dry_run": false,
+  "enable_profile_boost": true,
+  "headless": false,
+  "slow_mo_ms": 300,
+  "selectors": {
+    "login_url": "https://www.naukri.com/nlogin/login",
+    "profile_url": "https://www.naukri.com/mnjuser/profile",
+    "headline_edit_icon": "span.edit.icon",
+    "headline_textarea": "textarea#resumeHeadlineTxt",
+    "headline_save_btn": "div.action button.btn-dark-ot",
+    "search_input": "input.sugInp",
+    "location_input": "input#qsb-location-sug",
+    "search_btn": "button.qsbSubmit",
+    "apply_button": "button:has-text('Apply')",
+    "easy_apply_button": "button:has-text('Apply on company site')"
+  }
+}
