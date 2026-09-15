@@ -9,6 +9,13 @@ from datetime import datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
+# Force real-time log output for cloud runners
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(line_buffering=True)
+    except Exception:
+        pass
+
 BASE_DIR = Path(__file__).parent
 AUTH_FILE = BASE_DIR / "auth" / "storage_state.json"
 CONFIG_FILE = BASE_DIR / "config.json"
@@ -385,7 +392,7 @@ def apply_to_jobs(page, config, dry_run=False):
                             job_page.close()
                             
                             # Humanized delay between applications
-                            delay = random.uniform(3.5, 7.0)
+                            delay = random.uniform(1.8, 3.5)
                             time.sleep(delay)
 
                         except PlaywrightTimeoutError:

@@ -12,6 +12,8 @@ on:
 jobs:
   run-naukri-bot:
     runs-on: ubuntu-latest
+    env:
+      PYTHONUNBUFFERED: "1"
     permissions:
       contents: write
       pages: write
