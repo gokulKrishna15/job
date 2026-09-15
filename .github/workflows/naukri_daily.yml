@@ -4,7 +4,10 @@ on:
   schedule:
     # Runs daily at 03:30 AM UTC (9:00 AM IST)
     - cron: '30 3 * * *'
-  workflow_dispatch: # Allows manual trigger from GitHub Mobile App or Web anytime
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual trigger anytime from GitHub App or Web UI
 
 jobs:
   run-naukri-bot:
