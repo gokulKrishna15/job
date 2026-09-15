@@ -130,21 +130,34 @@ def boost_profile(page, config, dry_run=False):
         page.goto("https://www.naukri.com/mnjuser/profile", wait_until="domcontentloaded")
         page.wait_for_timeout(3000)
 
-        # Look for edit headline icon / section
-        headline_edit = page.query_selector("span.edit.icon:has-text('widgetTitle'), div.resumeHeadline span.edit") or page.query_selector("span.edit.icon")
-        if headline_edit:
-            headline_edit.click()
+        # Look specifically for visible edit icon inside the resume headline card/section
+        headline_card = page.query_selector("div.resumeHeadline, div.card:has-text('Resume headline'), div.widgetTitle:has-text('Resume headline')")
+        headline_edit = None
+        if headline_card:
+            edit_cand = headline_card.query_selector("span.edit, em.icon-edit, span.icon")
+            if edit_cand and edit_cand.is_visible():
+                headline_edit = edit_cand
+
+        if not headline_edit:
+            for el in page.query_selector_all("div.resumeHeadline span.edit, span.edit"):
+                if el.is_visible():
+                    headline_edit = el
+                    break
+
+        if headline_edit and headline_edit.is_visible():
+            try:
+                headline_edit.click(timeout=3000)
+            except Exception:
+                headline_edit.click(force=True, timeout=3000)
             page.wait_for_timeout(1500)
             
-            textarea = page.query_selector("textarea#resumeHeadlineTxt, textarea.resumeHeadline")
-            if textarea:
+            textarea = page.query_selector("textarea#resumeHeadlineTxt, textarea.resumeHeadline, textarea")
+            if textarea and textarea.is_visible():
                 current_text = textarea.input_value().strip()
                 
-                # Check if current text matches target, or contains 'Platform'
                 if "Platform" in current_text or current_text != target_headline:
                     new_text = target_headline
                 else:
-                    # Subtle daily touch (toggle ending period) to trigger Naukri 'last updated' timestamp
                     if current_text.endswith("."):
                         new_text = current_text[:-1]
                     else:
@@ -153,9 +166,9 @@ def boost_profile(page, config, dry_run=False):
                 if not dry_run:
                     textarea.fill(new_text)
                     page.wait_for_timeout(1000)
-                    save_btn = page.query_selector("div.action button.btn-dark-ot, button:has-text('Save')")
-                    if save_btn:
-                        save_btn.click()
+                    save_btn = page.query_selector("div.action button.btn-dark-ot, button:has-text('Save'), button.btn-primary")
+                    if save_btn and save_btn.is_visible():
+                        save_btn.click(timeout=3000)
                         page.wait_for_timeout(2000)
                         print(f"[PROFILE BOOST] Successfully updated profile headline to:\n '{new_text}'")
                     else:
@@ -165,9 +178,10 @@ def boost_profile(page, config, dry_run=False):
             else:
                 print("[PROFILE BOOST] Headline text area not found.")
         else:
-            print("[PROFILE BOOST] Edit headline element not found on profile page.")
+            print("[PROFILE BOOST] Visible edit headline element not found on profile page.")
     except Exception as e:
-        print(f"[PROFILE BOOST ERROR] Failed to boost profile: {e}")
+        print(f"[PROFILE BOOST ERROR] Profile boost step bypassed safely: {e}")
+
 
 
 def handle_questionnaire(job_page, config, dry_run=False):

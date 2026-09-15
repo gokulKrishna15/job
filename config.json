@@ -10,8 +10,8 @@
     "preferred_location": "Bengaluru",
     "notice_period_days": 30,
     "current_ctc_lpa": "6",
-    "expected_ctc_lpa": "10",
-    "target_goal_ctc": "10 LPA",
+    "expected_ctc_lpa": "12",
+    "target_goal_ctc": ">10 LPA (Target: 10 - 15 LPA)",
     "skills": [
       "Python",
       "FastAPI",
