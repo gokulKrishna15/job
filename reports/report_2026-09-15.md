@@ -1,22 +1,22 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: September 15, 2026 - 07:30 AM  
+**Date**: September 15, 2026 - 08:46 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
 
 ## 📈 Executive Summary
 
-- **Total Jobs Auto-Applied Today**: `100`
-- **Recommended High-Match External Jobs**: `267`
+- **Total Jobs Auto-Applied Today**: `186`
+- **Recommended High-Match External Jobs**: `739`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
-- **DevOps Roles**: 20
+- **DevOps Roles**: 42
 - **Backend Developer Roles**: 18
 - **FastAPI Developer Roles**: 0
-- **Python Developer Roles**: 24
+- **Python Developer Roles**: 38
 - **Platform & Full Stack Roles**: 0
-- **Software Engineering Roles**: 38
+- **Software Engineering Roles**: 88
 
 ---
 
@@ -27,23 +27,23 @@
 | :---: | :--- | :--- | :--- | :--- |
 | **98%** | DevOps Engineer - CI/CD, Python, SAP BTP | Brigosha Technologies | `DevOps, Python, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-python-sap-btp-brigosha-technologies-bengaluru-2-to-5-years-310826500904) |
 | **98%** | DevOps Engineer - CI/CD, Python, SAP BTP | Brigosha Technologies | `DevOps, Python, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-python-sap-btp-brigosha-technologies-bengaluru-2-to-5-years-310826500904?src=directSearch&sid=17894542580673342&xp=4&px=1) |
+| **98%** | DevOps Engineer - CI/CD, Python, SAP BTP | Brigosha Technologies | `DevOps, Python, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-python-sap-btp-brigosha-technologies-bengaluru-2-to-5-years-310826500904) |
+| **98%** | DevOps Engineer - CI/CD, Python, SAP BTP | Brigosha Technologies | `DevOps, Python, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-python-sap-btp-brigosha-technologies-bengaluru-2-to-5-years-310826500904?src=directSearch&sid=17894595478646449&xp=4&px=1) |
+| **98%** | DevOps Engineer (AI Platform) | Zensar | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ai-platform-zensar-technologies-pune-bengaluru-2-to-6-years-140926502347) |
+| **98%** | DevOps Engineer (AI Platform) | Zensar | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ai-platform-zensar-technologies-pune-bengaluru-2-to-6-years-140926502347?src=directSearch&sid=17894596495379540&xp=9&px=2) |
+| **98%** | Devops Engineer (Platform System Engineer) | Aternity It Services | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-platform-system-engineer-aternity-it-services-bengaluru-2-to-6-years-300725502352) |
+| **98%** | Devops Engineer (Platform System Engineer) | Aternity It Services | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-platform-system-engineer-aternity-it-services-bengaluru-2-to-6-years-300725502352?src=directSearch&sid=17894599302643387&xp=7&px=4) |
+| **98%** | Full Stack Developer (Backend-Focused | MERN + Python) | Galaxeye Space | `Python, Backend, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-developer-backend-focused-mern-python-galaxeye-space-bengaluru-2-to-6-years-120526502354) |
+| **98%** | Full Stack Developer (Backend-Focused | MERN + Python) | Galaxeye Space | `Python, Backend, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-developer-backend-focused-mern-python-galaxeye-space-bengaluru-2-to-6-years-120526502354?src=directSearch&sid=17894604613297620&xp=1&px=4) |
 | **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
 | **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530?src=directSearch&sid=17894542580673342&xp=8&px=1) |
-| **90%** | Python Backend Developer | BSH Technologies | `Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-backend-developer-bsh-technologiesa-remote-1-to-4-years-210126502820) |
-| **90%** | Backend Developer (K3S/K8S/Docker) | Halliburton | `Backend, Docker` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-k3s-k8s-docker-halliburton-bengaluru-4-to-9-years-150626502064) |
-| **90%** | Backend Developer (K3S/K8S/Docker) | Halliburton | `Backend, Docker` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-k3s-k8s-docker-halliburton-bengaluru-4-to-9-years-150626502064?src=directSearch&sid=17894551813442749&xp=6&px=2) |
-| **85%** | DevOps Engineer | Rupstech | `DevOps` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-rupstech-private-limited-bengaluru-1-to-5-years-110926501324) |
-| **85%** | DevOps Engineer | Rupstech | `DevOps` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-rupstech-private-limited-bengaluru-1-to-5-years-110926501324?src=directSearch&sid=17894542580673342&xp=2&px=1) |
-| **85%** | DevOps Engineer | Alrium | `DevOps` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-alrium-bengaluru-2-to-6-years-140926500976) |
-| **85%** | DevOps Engineer | Alrium | `DevOps` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-alrium-bengaluru-2-to-6-years-140926500976?src=directSearch&sid=17894542580673342&xp=3&px=1) |
-| **85%** | DevOps Engineer | Apcell Infotech | `DevOps` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ap-cell-infotech-pvt-ltd-bengaluru-2-to-5-years-230626501496) |
-| **85%** | DevOps Engineer | Apcell Infotech | `DevOps` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ap-cell-infotech-pvt-ltd-bengaluru-2-to-5-years-230626501496?src=directSearch&sid=17894542580673342&xp=5&px=1) |
-| **85%** | DevOps Engineer | Sigma Allied Services | `DevOps` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-sigma-allied-services-private-limited-bengaluru-2-to-6-years-200726500538) |
-| **85%** | DevOps Engineer | Sigma Allied Services | `DevOps` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-sigma-allied-services-private-limited-bengaluru-2-to-6-years-200726500538?src=directSearch&sid=17894542580673342&xp=6&px=1) |
+| **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
+| **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530?src=directSearch&sid=17894595478646449&xp=8&px=1) |
+| **95%** | Backend Developer (Django, Python, Celery, AWS) | Credy | `Python, Backend, AWS` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-django-python-celery-aws-credy-bengaluru-1-to-5-years-211123500119) |
 
 ---
 
-## 🤖 Auto-Applied Naukri Jobs (100)
+## 🤖 Auto-Applied Naukri Jobs (186)
 
 | Time | Job Title | Company | Location | Status | Link |
 | :--- | :--- | :--- | :--- | :---: | :--- |
