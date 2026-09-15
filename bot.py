@@ -398,6 +398,14 @@ def apply_to_jobs(page, config, dry_run=False):
                                 job_page.close()
                                 continue
 
+                            if "limit reached" in btn_text or "quota" in btn_text or "daily limit" in btn_text:
+                                print(f"[DAILY QUOTA REACHED] Naukri indicates daily quota reached for: {title}")
+                                log_skipped(title, company, job_url, "Daily quota reached")
+                                applied_urls.add(job_url)
+                                job_page.close()
+                                continue
+
+
                             if not dry_run:
                                 apply_btn.click()
                                 job_page.wait_for_timeout(3000)
