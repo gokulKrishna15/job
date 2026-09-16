@@ -127,19 +127,23 @@ def boost_profile(page, config, dry_run=False):
     )
     
     try:
-        page.goto("https://www.naukri.com/mnjuser/profile", wait_until="domcontentloaded")
+        page.goto("https://www.naukri.com/mnjuser/profile", wait_until="domcontentloaded", timeout=15000)
         page.wait_for_timeout(3000)
 
         headline_card = page.query_selector("div.resumeHeadline, div.card:has-text('Resume headline'), div.widgetTitle:has-text('Resume headline')")
         if headline_card:
-            headline_card.scroll_into_view_if_needed()
+            try:
+                headline_card.scroll_into_view_if_needed()
+            except Exception:
+                pass
             page.wait_for_timeout(1000)
 
         headline_edit = None
         if headline_card:
-            edit_cand = headline_card.query_selector("span.edit, em.icon-edit, span.icon")
-            if edit_cand:
-                headline_edit = edit_cand
+            for cand in headline_card.query_selector_all("span.edit, em.icon-edit, span.icon"):
+                if cand.is_visible():
+                    headline_edit = cand
+                    break
 
         if not headline_edit:
             for el in page.query_selector_all("div.resumeHeadline span.edit, span.edit"):
@@ -149,10 +153,12 @@ def boost_profile(page, config, dry_run=False):
 
         if headline_edit:
             try:
-                headline_edit.scroll_into_view_if_needed()
                 headline_edit.click(timeout=3000)
             except Exception:
-                headline_edit.click(force=True, timeout=3000)
+                try:
+                    page.evaluate("el => el.click()", headline_edit)
+                except Exception:
+                    pass
             
             # Wait for profile drawer / textarea to load
             try:
@@ -162,6 +168,7 @@ def boost_profile(page, config, dry_run=False):
                 
             textarea = page.query_selector("textarea#resumeHeadlineTxt, textarea.resumeHeadline, textarea")
             if textarea:
+
                 current_text = textarea.input_value().strip()
                 
                 if "Platform" in current_text or current_text != target_headline:
