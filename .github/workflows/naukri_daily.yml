@@ -2,12 +2,10 @@ name: Daily Automated Naukri Job Applicator & Intelligence Report
 
 on:
   schedule:
-    # Runs daily at 03:17 AM UTC (8:47 AM IST - off-peak minute avoids GitHub Action queue delays)
+    # Runs daily at 03:17 AM UTC (8:47 AM IST)
     - cron: '17 3 * * *'
-  push:
-    branches:
-      - main
   workflow_dispatch: # Allows manual trigger anytime from GitHub App or Web UI
+
 
 jobs:
   run-naukri-bot:
