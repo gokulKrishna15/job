@@ -367,8 +367,13 @@ def apply_to_jobs(page, config, dry_run=False):
                         # Mark URL as seen
                         applied_urls.add(job_url)
 
-                        # Check for negative tech keywords (Java, C++, .NET, etc.)
-                        neg_matches = [nk for nk in negative_keywords if f" {nk.lower()} " in f" {title.lower()} " or title.lower().startswith(nk.lower() + " ")]
+                        # Check for negative tech keywords (Java, C++, .NET, etc., including slash/dash combos like C/C++)
+                        norm_title = title.lower().replace('–', ' ').replace('—', ' ').replace('/', ' ').replace('-', ' ')
+                        title_words = norm_title.split()
+                        neg_matches = [
+                            nk for nk in negative_keywords 
+                            if nk.lower() in title_words or f" {nk.lower()} " in f" {norm_title} " or norm_title.startswith(nk.lower())
+                        ]
                         if neg_matches:
                             print(f"[EXCLUDED TECH] Skipped: {title} @ {company} (Matches excluded stack: {', '.join(neg_matches)})")
                             log_skipped(title, company, job_url, f"Excluded tech stack: {', '.join(neg_matches)}")
@@ -377,9 +382,16 @@ def apply_to_jobs(page, config, dry_run=False):
                         # Check if card has immediate apply or opens new tab
                         print(f"\n[EVALUATING] {title} at {company}")
 
+                        # Ensure element is visible in view before clicking
+                        try:
+                            title_el.scroll_into_view_if_needed()
+                        except Exception:
+                            pass
+
                         # Open job in new page/tab to safely process
                         with page.context.expect_page(timeout=10000) as new_page_info:
                             title_el.click()
+
                         
                         job_page = new_page_info.value
                         job_page.wait_for_load_state("domcontentloaded")
