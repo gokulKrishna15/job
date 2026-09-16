@@ -2,8 +2,8 @@ name: Daily Automated Naukri Job Applicator & Intelligence Report
 
 on:
   schedule:
-    # Runs daily at 03:30 AM UTC (9:00 AM IST)
-    - cron: '30 3 * * *'
+    # Runs daily at 03:17 AM UTC (8:47 AM IST - off-peak minute avoids GitHub Action queue delays)
+    - cron: '17 3 * * *'
   push:
     branches:
       - main
