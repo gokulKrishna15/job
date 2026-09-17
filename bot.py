@@ -153,12 +153,13 @@ def boost_profile(page, config, dry_run=False):
 
         if headline_edit:
             try:
-                headline_edit.click(timeout=3000)
+                page.evaluate("el => el.click()", headline_edit)
             except Exception:
                 try:
-                    page.evaluate("el => el.click()", headline_edit)
+                    headline_edit.click(force=True, timeout=1000)
                 except Exception:
                     pass
+
             
             # Wait for profile drawer / textarea to load
             try:
