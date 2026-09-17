@@ -127,49 +127,30 @@ def boost_profile(page, config, dry_run=False):
     )
     
     try:
-        page.goto("https://www.naukri.com/mnjuser/profile", wait_until="domcontentloaded", timeout=15000)
+        page.goto("https://www.naukri.com/mnjuser/profile", wait_until="networkidle", timeout=20000)
         page.wait_for_timeout(3000)
 
-        headline_card = page.query_selector("div.resumeHeadline, div.card:has-text('Resume headline'), div.widgetTitle:has-text('Resume headline')")
-        if headline_card:
+        # Locate edit icon specifically by checking parent element text for 'Resume headline'
+        edits = page.query_selector_all("span.edit, em.icon-edit, span.icon")
+        headline_edit = None
+        for ed in edits:
             try:
-                headline_card.scroll_into_view_if_needed()
+                parent_txt = ed.evaluate("e => e.parentElement ? e.parentElement.innerText : ''")
+                if "Resume headline" in parent_txt:
+                    headline_edit = ed
+                    break
             except Exception:
                 pass
-            page.wait_for_timeout(1000)
-
-        headline_edit = None
-        if headline_card:
-            for cand in headline_card.query_selector_all("span.edit, em.icon-edit, span.icon"):
-                if cand.is_visible():
-                    headline_edit = cand
-                    break
 
         if not headline_edit:
-            for el in page.query_selector_all("div.resumeHeadline span.edit, span.edit"):
-                if el.is_visible():
-                    headline_edit = el
-                    break
+            headline_edit = page.query_selector("div.resumeHeadline span.edit")
 
         if headline_edit:
-            try:
-                page.evaluate("el => el.click()", headline_edit)
-            except Exception:
-                try:
-                    headline_edit.click(force=True, timeout=1000)
-                except Exception:
-                    pass
-
+            page.evaluate("e => e.click()", headline_edit)
+            page.wait_for_timeout(2000)
             
-            # Wait for profile drawer / textarea to load
-            try:
-                page.wait_for_selector("textarea", timeout=4000)
-            except Exception:
-                pass
-                
             textarea = page.query_selector("textarea#resumeHeadlineTxt, textarea.resumeHeadline, textarea")
             if textarea:
-
                 current_text = textarea.input_value().strip()
                 
                 if "Platform" in current_text or current_text != target_headline:
@@ -184,11 +165,11 @@ def boost_profile(page, config, dry_run=False):
                     textarea.fill(new_text)
                     page.wait_for_timeout(1000)
                     
-                    save_btn = page.query_selector("button:has-text('Save'), button.btn-dark-ot, button[type='submit'], div.action button")
+                    save_btn = page.query_selector("div.profileEditDrawer button:has-text('Save'), button.btn-dark-ot:has-text('Save'), button:has-text('Save')")
                     if save_btn:
-                        save_btn.click(timeout=3000)
-                        page.wait_for_timeout(2000)
-                        print(f"[PROFILE BOOST] Successfully updated profile headline to:\n '{new_text}'")
+                        page.evaluate("e => e.click()", save_btn)
+                        page.wait_for_timeout(3000)
+                        print(f"[PROFILE BOOST SUCCESS!] Successfully updated profile headline to:\n '{new_text}'")
                     else:
                         print("[PROFILE BOOST] Could not locate save button for headline.")
                 else:
@@ -196,9 +177,10 @@ def boost_profile(page, config, dry_run=False):
             else:
                 print("[PROFILE BOOST] Headline text area not found.")
         else:
-            print("[PROFILE BOOST] Visible edit headline element not found on profile page.")
+            print("[PROFILE BOOST] Headline edit element not found on profile page.")
     except Exception as e:
-        print(f"[PROFILE BOOST ERROR] Profile boost step bypassed safely: {e}")
+        print(f"[PROFILE BOOST ERROR] Failed to boost profile: {e}")
+
 
 
 
