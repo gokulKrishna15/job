@@ -7,13 +7,7 @@ on:
     # Fallback Backup Schedule: 9:30 AM IST (04:00 AM UTC)
     - cron: '0 4 * * *'
   workflow_dispatch: # Allows manual trigger anytime from GitHub App or Web UI
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'docs/**'
-      - 'logs/**'
-      - 'reports/**'
+
 
 
 
