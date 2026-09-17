@@ -2,9 +2,19 @@ name: Daily Automated Naukri Job Applicator & Intelligence Report
 
 on:
   schedule:
-    # Runs daily at 03:17 AM UTC (8:47 AM IST)
+    # Primary Schedule: 8:47 AM IST (03:17 AM UTC)
     - cron: '17 3 * * *'
+    # Fallback Backup Schedule: 9:30 AM IST (04:00 AM UTC)
+    - cron: '0 4 * * *'
   workflow_dispatch: # Allows manual trigger anytime from GitHub App or Web UI
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - 'logs/**'
+      - 'reports/**'
+
 
 
 jobs:
