@@ -108,6 +108,20 @@ def log_skipped(title, company, url, reason):
         writer = csv.writer(f)
         writer.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), title, company, url, reason])
 
+def count_today_successful_applications():
+    init_logs()
+    count = 0
+    today_prefix = datetime.now().strftime("%Y-%m-%d")
+    if HISTORY_FILE.exists():
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+            reader = csv.reader(f)
+            next(reader, None)  # skip header
+            for row in reader:
+                if row and len(row) >= 6 and row[0].startswith(today_prefix):
+                    if row[5] in ["APPLIED", "APPLIED_WITH_QUESTIONNAIRE", "DRY_RUN_APPLIED"]:
+                        count += 1
+    return count
+
 def load_applied_urls():
     init_logs()
     applied_urls = set()
@@ -116,9 +130,10 @@ def load_applied_urls():
             reader = csv.reader(f)
             next(reader, None)  # skip header
             for row in reader:
-                if len(row) >= 5 and row[5] in ["APPLIED", "ALREADY_APPLIED", "DRY_RUN_APPLIED"]:
+                if len(row) >= 5 and row[5] in ["APPLIED", "ALREADY_APPLIED", "DRY_RUN_APPLIED", "APPLIED_WITH_QUESTIONNAIRE"]:
                     applied_urls.add(row[4])
     return applied_urls
+
 
 def boost_profile(page, config, dry_run=False):
     print("\n[PROFILE BOOST] Navigating to Naukri Profile...")
@@ -263,8 +278,19 @@ def get_naukri_urls(kw, loc, exp, page_num):
     urls.append(f"https://www.naukri.com/jobs-in-{loc_slug}?k={urllib.parse.quote(kw)}&experience={exp}&pageNo={page_num}")
     return urls
 
-def apply_to_jobs(page, config, dry_run=False):
+def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
+    today_successful = count_today_successful_applications()
+    min_completed_threshold = config.get("min_completed_target", 25)
+
+    if today_successful >= min_completed_threshold and not force_rerun and not dry_run:
+        print(f"\n==================================================")
+        print(f" [DAILY SAFETY GUARD] Already applied to {today_successful} jobs today ({datetime.now().strftime('%Y-%m-%d')}).")
+        print(f" Today's application run is already complete! Skipping job search to prevent extra runs.")
+        print(f"==================================================")
+        return
+
     applied_urls = load_applied_urls()
+
     daily_limit = config.get("daily_apply_limit", 100)
     keywords = config.get("keywords", ["Backend Developer", "DevOps Engineer", "FastAPI Developer", "Python Developer", "MLOps Engineer"])
     negative_keywords = config.get("negative_keywords", ["Java", "Spring", "C++", ".NET", "ASP.NET", "C#", "PHP", "Angular", "Ruby", "Android", "iOS"])
@@ -473,6 +499,7 @@ def main():
     parser = argparse.ArgumentParser(description="Automated Daily Naukri Profile Booster & Job Applicator")
     parser.add_argument("--dry-run", action="store_true", help="Run search & checks without applying")
     parser.add_argument("--headless", action="store_true", help="Run browser in headless mode")
+    parser.add_argument("--force", action="store_true", help="Force rerun even if today's run completed")
     args = parser.parse_args()
 
     config = load_config()
@@ -546,7 +573,8 @@ def main():
             boost_profile(page, config, dry_run=is_dry_run)
 
         # 2. Job Search & Auto Apply
-        apply_to_jobs(page, config, dry_run=is_dry_run)
+        apply_to_jobs(page, config, dry_run=is_dry_run, force_rerun=args.force)
+
 
         browser.close()
 
