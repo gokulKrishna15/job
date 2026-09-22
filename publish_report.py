@@ -17,8 +17,9 @@ def prepare_github_pages():
     if REPORT_FILE.exists():
         shutil.copy(str(REPORT_FILE), str(DOCS_DIR / "index.html"))
         print("==================================================================")
-        print("   🌐 FREE ONLINE HOSTING UTILITY (GITHUB PAGES / NETLIFY)        ")
+        print("   FREE ONLINE HOSTING UTILITY (GITHUB PAGES / NETLIFY)          ")
         print("==================================================================")
+
         print(f"--> Copied latest report to: {DOCS_DIR / 'index.html'}")
         print("\nTo access your report from your phone anywhere in the world:")
         print("1. Push this folder to a GitHub repository.")
