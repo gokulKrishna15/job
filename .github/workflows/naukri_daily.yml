@@ -10,8 +10,7 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '.github/workflows/naukri_daily.yml'
+
 
 # ──────────────────────────────────────────────────────────────
 # PERMANENT FIX: Only ONE run at a time.
