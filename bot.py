@@ -130,7 +130,9 @@ def load_applied_urls():
             reader = csv.reader(f)
             next(reader, None)  # skip header
             for row in reader:
-                if len(row) >= 5 and row[5] in ["APPLIED", "ALREADY_APPLIED", "DRY_RUN_APPLIED", "APPLIED_WITH_QUESTIONNAIRE"]:
+                if len(row) >= 5:
+                    clean_u = row[4].split("?")[0]
+                    applied_urls.add(clean_u)
                     applied_urls.add(row[4])
     return applied_urls
 
@@ -333,8 +335,11 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
                         except Exception:
                             pass
 
-                        # Extract job tuples (title, company, link)
-                        job_cards = page.query_selector_all("div.cust-job-tuple, article.jobTuple, div.srp-jobtuple-wrapper, div.jobTupleWrapper, div.tuple")
+                        # Extract job tuples (prefer outer wrapper to prevent nested card duplicates)
+                        job_cards = page.query_selector_all("div.srp-jobtuple-wrapper, article.jobTuple")
+                        if not job_cards:
+                            job_cards = page.query_selector_all("div.cust-job-tuple, div.tuple, a.title")
+                        
                         if not job_cards:
                             # Fallback query for titles if card wrappers differ
                             title_links = page.query_selector_all("a.title")
@@ -358,7 +363,7 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
                         break
 
                     try:
-                        title_el = card.query_selector("a.title")
+                        title_el = card.query_selector("a.title") if card.evaluate("e => e.tagName") != "A" else card
                         company_el = card.query_selector("a.comp-name, a.subTitle")
                         loc_el = card.query_selector("span.locWrd, span.location")
 
@@ -370,11 +375,16 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
                         location_text = loc_el.inner_text().strip() if loc_el else loc
                         job_url = title_el.get_attribute("href")
 
-                        if not job_url or job_url in applied_urls:
+                        if not job_url:
+                            continue
+
+                        clean_url = job_url.split("?")[0]
+                        if job_url in applied_urls or clean_url in applied_urls:
                             continue
 
                         # Mark URL as seen
                         applied_urls.add(job_url)
+                        applied_urls.add(clean_url)
 
                         # Check for negative tech keywords (Java, C++, .NET, etc., including slash/dash combos like C/C++)
                         norm_title = title.lower().replace('–', ' ').replace('—', ' ').replace('/', ' ').replace('-', ' ')
