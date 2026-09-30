@@ -212,50 +212,62 @@ def handle_questionnaire(job_page, config, dry_run=False):
     loc = profile.get("current_location", "Bengaluru")
     
     try:
-        # Give modal 2 seconds to stabilize
         job_page.wait_for_timeout(2000)
         
-        # Check for inputs
-        inputs = job_page.query_selector_all("div.chatbot input, div.questionnaire input, div.modal-container input, div.apply-message input, textarea")
+        # 1. Answer chip options (Naukri chatbot pill suggestions e.g. "2", "30", "Yes")
+        chips = job_page.query_selector_all("div.chipMsg, div[class*='chip'], span[class*='chip'], button[class*='chip'], li[class*='chip']")
+        for chip in chips:
+            try:
+                ctxt = (chip.inner_text() or "").strip()
+                if ctxt in [exp, notice, "Yes", "2", "30", loc, "10"]:
+                    chip.click()
+                    job_page.wait_for_timeout(800)
+            except Exception:
+                pass
+
+        # 2. Fill standard input & textarea fields inside chatbot/modal
+        inputs = job_page.query_selector_all("div[class*='chatBot'] input, div[class*='Drawer'] input, div.chatbot input, div.questionnaire input, div.modal-container input, textarea")
         for inp in inputs:
             try:
-                inp_type = (inp.get_attribute("type") or "text").lower()
+                if inp.get_attribute("type") in ["hidden", "file"]:
+                    continue
                 placeholder = (inp.get_attribute("placeholder") or "").lower()
                 aria_label = (inp.get_attribute("aria-label") or "").lower()
                 name_attr = (inp.get_attribute("name") or "").lower()
                 combined = f"{placeholder} {aria_label} {name_attr}"
 
-                if inp_type in ["text", "number"]:
-                    if any(k in combined for k in ["exp", "year"]):
-                        inp.fill(exp)
-                    elif any(k in combined for k in ["notice", "day"]):
-                        inp.fill(notice)
-                    elif any(k in combined for k in ["expected", "exp ctc"]):
-                        inp.fill(expected_ctc)
-                    elif any(k in combined for k in ["ctc", "salary", "current"]):
-                        inp.fill(current_ctc)
-                    elif "location" in combined or "city" in combined:
-                        inp.fill(loc)
-                    else:
-                        inp.fill("Yes")
+                if any(k in combined for k in ["exp", "year"]):
+                    inp.fill(exp)
+                elif any(k in combined for k in ["notice", "day"]):
+                    inp.fill(notice)
+                elif any(k in combined for k in ["expected", "exp ctc"]):
+                    inp.fill(expected_ctc)
+                elif any(k in combined for k in ["ctc", "salary", "current"]):
+                    inp.fill(current_ctc)
+                elif "location" in combined or "city" in combined:
+                    inp.fill(loc)
+                else:
+                    inp.fill(exp)
             except Exception:
                 pass
 
-        # Select 'Yes' radio buttons or checkboxes if present
+        # 3. Select 'Yes' radio buttons or checkboxes if present
         yes_btns = job_page.query_selector_all("label:has-text('Yes'), input[value='Yes'], button:has-text('Yes')")
-        for yb in yes_btns[:3]: # Click up to first 3 Yes options
+        for yb in yes_btns[:3]:
             try:
                 yb.click()
                 job_page.wait_for_timeout(300)
             except Exception:
                 pass
 
-        # Click submit / save / apply in questionnaire modal
+        # 4. Click Submit / Save / Apply inside chatbot or modal
         if not dry_run:
-            sub_btn = job_page.query_selector("button:has-text('Submit'), button:has-text('Save'), button:has-text('Apply'), div.bot-submit button, button.submit-btn")
+            sub_btn = job_page.query_selector("button:has-text('Submit'), button:has-text('Save'), button:has-text('Apply'), div.bot-submit button, button.submit-btn, div[class*='chatbot'] button:has-text('Save')")
             if sub_btn:
                 sub_btn.click()
                 job_page.wait_for_timeout(3000)
+                return True
+            else:
                 return True
         else:
             print("[DRY-RUN] Filled questionnaire answers and would click Submit.")
@@ -264,7 +276,7 @@ def handle_questionnaire(job_page, config, dry_run=False):
     except Exception as e:
         print(f"[QUESTIONNAIRE LOG] Exception while answering questions: {e}")
         
-    return False
+    return True
 
 def get_naukri_urls(kw, loc, exp, page_num):
     kw_slug = kw.lower().replace(" ", "-").replace("/", "-")
@@ -448,30 +460,23 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
                                 apply_btn.click()
                                 job_page.wait_for_timeout(3500)
                                 
-                                # Check if questionnaire or modal popped up
-                                modal_ques = job_page.query_selector("div.chatbot, div.apply-message, div.questionnaire, div.modal-container, div.chatbot-container, div.drawer, div[class*='modal']")
+                                # Check if chatbot drawer or questionnaire modal popped up
+                                modal_ques = job_page.query_selector("div[class*='chatBotContainer'], div[class*='chatbot_Drawer'], div[class*='questionnaire'], div.apply-message")
                                 if modal_ques:
-                                    print(f"[QUESTIONNAIRE] Modal popped up for {title}. Auto-filling answers...")
-                                    ans_success = handle_questionnaire(job_page, config, dry_run=False)
-                                    if ans_success:
-                                        total_applied += 1
-                                        kw_applied += 1
-                                        print(f"--> [SUCCESS {total_applied}/{daily_limit}] Answered questionnaire & applied to: {title} @ {company}")
-                                        log_application(title, company, location_text, job_url, "APPLIED_WITH_QUESTIONNAIRE")
-                                    else:
-                                        log_skipped(title, company, job_url, "Complex questionnaire")
+                                    print(f"[QUESTIONNAIRE] Chatbot/Modal popped up for {title}. Auto-filling answers...")
+                                    handle_questionnaire(job_page, config, dry_run=False)
+
+                                # Verify button state after click to ensure application was confirmed by Naukri
+                                confirm_btn = job_page.query_selector("button:has-text('Applied'), button:has-text('Application sent'), div:has-text('applied successfully')")
+                                confirm_text = (job_page.inner_text("body") or "").lower()
+                                if confirm_btn or any(k in confirm_text for k in ["application sent", "applied successfully", "you have applied", "already applied", "thank you for showing interest"]):
+                                    total_applied += 1
+                                    kw_applied += 1
+                                    print(f"--> [SUCCESS {total_applied}/{daily_limit}] Verified application sent: {title} @ {company}")
+                                    log_application(title, company, location_text, job_url, "APPLIED")
                                 else:
-                                    # Verify button state after click to ensure application was confirmed by Naukri
-                                    confirm_btn = job_page.query_selector("button:has-text('Applied'), button:has-text('Application sent'), div:has-text('applied successfully')")
-                                    confirm_text = (job_page.inner_text("body") or "").lower()
-                                    if confirm_btn or any(k in confirm_text for k in ["application sent", "applied successfully", "you have applied", "already applied"]):
-                                        total_applied += 1
-                                        kw_applied += 1
-                                        print(f"--> [SUCCESS {total_applied}/{daily_limit}] Verified application sent: {title} @ {company}")
-                                        log_application(title, company, location_text, job_url, "APPLIED")
-                                    else:
-                                        print(f"[SKIPPED] Unconfirmed apply state for: {title} @ {company}")
-                                        log_skipped(title, company, job_url, "Unconfirmed apply state")
+                                    print(f"[SKIPPED] Unconfirmed apply state for: {title} @ {company}")
+                                    log_skipped(title, company, job_url, "Unconfirmed apply state")
 
                             else:
                                 total_applied += 1
