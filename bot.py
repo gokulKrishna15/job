@@ -436,10 +436,10 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
 
                             if not dry_run:
                                 apply_btn.click()
-                                job_page.wait_for_timeout(3000)
+                                job_page.wait_for_timeout(3500)
                                 
                                 # Check if questionnaire or modal popped up
-                                modal_ques = job_page.query_selector("div.chatbot, div.apply-message, div.questionnaire, div.modal-container, div.chatbot-container")
+                                modal_ques = job_page.query_selector("div.chatbot, div.apply-message, div.questionnaire, div.modal-container, div.chatbot-container, div.drawer, div[class*='modal']")
                                 if modal_ques:
                                     print(f"[QUESTIONNAIRE] Modal popped up for {title}. Auto-filling answers...")
                                     ans_success = handle_questionnaire(job_page, config, dry_run=False)
@@ -451,10 +451,18 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
                                     else:
                                         log_skipped(title, company, job_url, "Complex questionnaire")
                                 else:
-                                    total_applied += 1
-                                    kw_applied += 1
-                                    print(f"--> [SUCCESS {total_applied}/{daily_limit}] Applied to: {title} @ {company}")
-                                    log_application(title, company, location_text, job_url, "APPLIED")
+                                    # Verify button state after click to ensure application was confirmed by Naukri
+                                    confirm_btn = job_page.query_selector("button:has-text('Applied'), button:has-text('Application sent'), div:has-text('applied successfully')")
+                                    confirm_text = (job_page.inner_text("body") or "").lower()
+                                    if confirm_btn or any(k in confirm_text for k in ["application sent", "applied successfully", "you have applied", "already applied"]):
+                                        total_applied += 1
+                                        kw_applied += 1
+                                        print(f"--> [SUCCESS {total_applied}/{daily_limit}] Verified application sent: {title} @ {company}")
+                                        log_application(title, company, location_text, job_url, "APPLIED")
+                                    else:
+                                        print(f"[SKIPPED] Unconfirmed apply state for: {title} @ {company}")
+                                        log_skipped(title, company, job_url, "Unconfirmed apply state")
+
                             else:
                                 total_applied += 1
                                 kw_applied += 1
