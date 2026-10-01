@@ -212,7 +212,7 @@ def handle_questionnaire(job_page, config, dry_run=False):
     loc = profile.get("current_location", "Bengaluru")
     
     try:
-        job_page.wait_for_timeout(2000)
+        job_page.wait_for_timeout(1500)
         
         # 1. Answer chip options (Naukri chatbot pill suggestions e.g. "2", "30", "Yes")
         chips = job_page.query_selector_all("div.chipMsg, div[class*='chip'], span[class*='chip'], button[class*='chip'], li[class*='chip']")
@@ -220,8 +220,8 @@ def handle_questionnaire(job_page, config, dry_run=False):
             try:
                 ctxt = (chip.inner_text() or "").strip()
                 if ctxt in [exp, notice, "Yes", "2", "30", loc, "10"]:
-                    chip.click()
-                    job_page.wait_for_timeout(800)
+                    chip.evaluate("e => e.click()")
+                    job_page.wait_for_timeout(500)
             except Exception:
                 pass
 
@@ -255,7 +255,7 @@ def handle_questionnaire(job_page, config, dry_run=False):
         yes_btns = job_page.query_selector_all("label:has-text('Yes'), input[value='Yes'], button:has-text('Yes')")
         for yb in yes_btns[:3]:
             try:
-                yb.click()
+                yb.evaluate("e => e.click()")
                 job_page.wait_for_timeout(300)
             except Exception:
                 pass
@@ -264,8 +264,8 @@ def handle_questionnaire(job_page, config, dry_run=False):
         if not dry_run:
             sub_btn = job_page.query_selector("button:has-text('Submit'), button:has-text('Save'), button:has-text('Apply'), div.bot-submit button, button.submit-btn, div[class*='chatbot'] button:has-text('Save')")
             if sub_btn:
-                sub_btn.click()
-                job_page.wait_for_timeout(3000)
+                sub_btn.evaluate("e => e.click()")
+                job_page.wait_for_timeout(2000)
                 return True
             else:
                 return True
