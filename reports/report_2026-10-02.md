@@ -1,13 +1,13 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 02, 2026 - 10:51 AM  
+**Date**: October 02, 2026 - 11:49 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
 
 ## 📈 Executive Summary
 
-- **Total Jobs Auto-Applied Today**: `0`
-- **Recommended High-Match External Jobs**: `348`
+- **Total Jobs Auto-Applied Today**: `1`
+- **Recommended High-Match External Jobs**: `349`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
@@ -16,7 +16,7 @@
 - **FastAPI Developer Roles**: 0
 - **Python Developer Roles**: 0
 - **Platform & Full Stack Roles**: 0
-- **Software Engineering Roles**: 0
+- **Software Engineering Roles**: 1
 
 ---
 
@@ -43,7 +43,8 @@
 
 ---
 
-## 🤖 Auto-Applied Naukri Jobs (0)
+## 🤖 Auto-Applied Naukri Jobs (1)
 
 | Time | Job Title | Company | Location | Status | Link |
 | :--- | :--- | :--- | :--- | :---: | :--- |
+| 11:29:40 | PySpark Data Engineer | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-pyspark-data-engineer-infosys-hyderabad-pune-bengaluru-2-to-5-years-250926036448) |
