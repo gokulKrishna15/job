@@ -1,17 +1,17 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 04, 2026 - 10:40 AM  
+**Date**: October 04, 2026 - 11:43 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
 
 ## 📈 Executive Summary
 
-- **Total Jobs Auto-Applied Today**: `1`
-- **Recommended High-Match External Jobs**: `351`
+- **Total Jobs Auto-Applied Today**: `0`
+- **Recommended High-Match External Jobs**: `349`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
-- **DevOps Roles**: 1
+- **DevOps Roles**: 0
 - **Backend Developer Roles**: 0
 - **FastAPI Developer Roles**: 0
 - **Python Developer Roles**: 0
@@ -43,8 +43,7 @@
 
 ---
 
-## 🤖 Auto-Applied Naukri Jobs (1)
+## 🤖 Auto-Applied Naukri Jobs (0)
 
 | Time | Job Title | Company | Location | Status | Link |
 | :--- | :--- | :--- | :--- | :---: | :--- |
-| 10:06:00 | MLOps + AWS devops | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-mlops-aws-devops-infosys-noida-hyderabad-bengaluru-2-to-5-years-290926041282) |
