@@ -1,20 +1,20 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 08, 2026 - 11:35 AM  
+**Date**: October 08, 2026 - 12:31 PM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
 
 ## 📈 Executive Summary
 
-- **Total Jobs Auto-Applied Today**: `0`
-- **Recommended High-Match External Jobs**: `344`
+- **Total Jobs Auto-Applied Today**: `1`
+- **Recommended High-Match External Jobs**: `347`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
 - **DevOps Roles**: 0
 - **Backend Developer Roles**: 0
 - **FastAPI Developer Roles**: 0
-- **Python Developer Roles**: 0
+- **Python Developer Roles**: 1
 - **Platform & Full Stack Roles**: 0
 - **Software Engineering Roles**: 0
 
@@ -30,20 +30,21 @@
 | **98%** | Backend Software Engineer - Python/Postgres [ / Global] | Enveritas | `Python, Backend, Software Eng, PostgreSQL` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-software-engineer-python-postgres-global-enveritas-remote-2-to-5-years-300326502285) |
 | **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
 | **95%** | Backend Devops Engineer | Embitel Technologies | `DevOps, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-devops-engineer-embitel-bengaluru-2-to-7-years-250926501743) |
+| **95%** | Full Stack Engineer - Platform & Systems | Thinkerbell Labs | `Platform, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-engineer-platform-systems-thinkerbell-labs-bengaluru-2-to-7-years-081026508909) |
 | **95%** | Software Engineer, Post-Trade Platform (Java/Angular) | Millennium Consulting | `Platform, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-post-trade-platform-java-angular-millennium-consulting-india-private-limited-bengaluru-2-to-6-years-061026916229) |
 | **95%** | Software Engineer (Frontend Platform), Git Native | Postman | `Platform, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-frontend-platform-git-native-postman-bengaluru-2-to-4-years-280926502625) |
 | **90%** | Full Stack Python Developer | Aritha Consulting Services | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-python-developer-aritha-consulting-services-pvt-ltd-bengaluru-2-to-4-years-071024503244) |
 | **90%** | Full Stack Python Developer | Aritha | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-python-developer-aritha-remote-2-to-4-years-071024503467) |
-| **90%** | Python Full Stack Developer | Innovation Techtree | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-full-stack-developer-innovation-techtree-remote-2-to-5-years-150526503896) |
 | **90%** | Python Backend Developer | BSH Technologies | `Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-backend-developer-bsh-technologiesa-remote-1-to-4-years-210126502820) |
 | **90%** | Backend Software Engineer | Bhyve | `Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-software-engineer-bhyve-remote-1-to-3-years-220526503457) |
 | **90%** | Backend Developer (MERN | PostgreSQL) | Stacklab | `Backend, PostgreSQL` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-mern-postgresql-stacklab-in-remote-2-to-5-years-150626504417) |
+| **90%** | Python Full Stack Developer | Innovation Techtree | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-full-stack-developer-innovation-techtree-remote-2-to-5-years-150526503896) |
 | **90%** | Software Engineer - Backend | Briefly | `Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-backend-briefly-remote-1-to-2-years-031025502796) |
-| **90%** | AWS DEVOPS ENGINEER | Balihans Software | `DevOps, AWS` | [Apply Now 🔗](https://www.naukri.com/job-listings-aws-devops-engineer-balihans-software-opc-private-limited-remote-2-to-4-years-190625503972) |
 
 ---
 
-## 🤖 Auto-Applied Naukri Jobs (0)
+## 🤖 Auto-Applied Naukri Jobs (1)
 
 | Time | Job Title | Company | Location | Status | Link |
 | :--- | :--- | :--- | :--- | :---: | :--- |
+| 11:36:54 | python developer | Spigot Software | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-developer-spigot-software-bengaluru-2-to-7-years-011026012242) |
