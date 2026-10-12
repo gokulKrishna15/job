@@ -1,13 +1,13 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 12, 2026 - 11:50 AM  
+**Date**: October 12, 2026 - 12:57 PM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
 
 ## 📈 Executive Summary
 
-- **Total Jobs Auto-Applied Today**: `1`
-- **Recommended High-Match External Jobs**: `335`
+- **Total Jobs Auto-Applied Today**: `0`
+- **Recommended High-Match External Jobs**: `338`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
@@ -16,7 +16,7 @@
 - **FastAPI Developer Roles**: 0
 - **Python Developer Roles**: 0
 - **Platform & Full Stack Roles**: 0
-- **Software Engineering Roles**: 1
+- **Software Engineering Roles**: 0
 
 ---
 
@@ -33,8 +33,8 @@
 | **95%** | Software Engineer (Frontend Platform), Git Native | Postman | `Platform, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-frontend-platform-git-native-postman-bengaluru-2-to-4-years-280926502625) |
 | **90%** | Full Stack Python Developer | Aritha Consulting Services | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-python-developer-aritha-consulting-services-pvt-ltd-bengaluru-2-to-4-years-071024503244) |
 | **90%** | Full Stack Python Developer | Aritha | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-python-developer-aritha-remote-2-to-4-years-071024503467) |
-| **90%** | Python Full Stack Developer | Innovation Techtree | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-full-stack-developer-innovation-techtree-remote-2-to-5-years-150526503896) |
 | **90%** | Python Backend Developer | BSH Technologies | `Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-backend-developer-bsh-technologiesa-remote-1-to-4-years-210126502820) |
+| **90%** | Python Full Stack Developer | Innovation Techtree | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-full-stack-developer-innovation-techtree-remote-2-to-5-years-150526503896) |
 | **90%** | Backend Software Engineer | Bhyve | `Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-software-engineer-bhyve-remote-1-to-3-years-220526503457) |
 | **90%** | Backend Developer (MERN | PostgreSQL) | Stacklab | `Backend, PostgreSQL` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-mern-postgresql-stacklab-in-remote-2-to-5-years-150626504417) |
 | **90%** | Software Engineer - Backend | Briefly | `Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-backend-briefly-remote-1-to-2-years-031025502796) |
@@ -43,8 +43,7 @@
 
 ---
 
-## 🤖 Auto-Applied Naukri Jobs (1)
+## 🤖 Auto-Applied Naukri Jobs (0)
 
 | Time | Job Title | Company | Location | Status | Link |
 | :--- | :--- | :--- | :--- | :---: | :--- |
-| 11:48:22 | Data Science & Analytics Strategy- Night Shift | Deloitte US-India Offices | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-data-science-analytics-strategy-night-shift-deloitte-us-india-offices-hyderabad-pune-bengaluru-2-to-6-years-071025028622) |
