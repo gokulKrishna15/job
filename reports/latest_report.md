@@ -1,13 +1,13 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 13, 2026 - 12:32 PM  
+**Date**: October 14, 2026 - 09:45 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
 
 ## 📈 Executive Summary
 
-- **Total Jobs Auto-Applied Today**: `0`
-- **Recommended High-Match External Jobs**: `345`
+- **Total Jobs Auto-Applied Today**: `1`
+- **Recommended High-Match External Jobs**: `342`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
@@ -16,7 +16,7 @@
 - **FastAPI Developer Roles**: 0
 - **Python Developer Roles**: 0
 - **Platform & Full Stack Roles**: 0
-- **Software Engineering Roles**: 0
+- **Software Engineering Roles**: 1
 
 ---
 
@@ -43,7 +43,8 @@
 
 ---
 
-## 🤖 Auto-Applied Naukri Jobs (0)
+## 🤖 Auto-Applied Naukri Jobs (1)
 
 | Time | Job Title | Company | Location | Status | Link |
 | :--- | :--- | :--- | :--- | :---: | :--- |
+| 09:42:24 | Data Science & Analytics Strategy- Night Shift | Deloitte US-India Offices | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-data-science-analytics-strategy-night-shift-deloitte-us-india-offices-hyderabad-pune-bengaluru-2-to-6-years-071025028622) |
