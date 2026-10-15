@@ -1,5 +1,5 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 14, 2026 - 10:45 AM  
+**Date**: October 15, 2026 - 09:29 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
@@ -7,7 +7,7 @@
 ## 📈 Executive Summary
 
 - **Total Jobs Auto-Applied Today**: `0`
-- **Recommended High-Match External Jobs**: `341`
+- **Recommended High-Match External Jobs**: `342`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
@@ -27,6 +27,7 @@
 | :---: | :--- | :--- | :--- | :--- |
 | **98%** | Platform Engineer (Data Platform / DevOps) | Kinara.ai | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-platform-engineer-data-platform-devops-kinara-inc-bengaluru-2-to-6-years-270826500460) |
 | **98%** | Backend Software Engineer - Python/Postgres [ / Global] | Enveritas | `Python, Backend, Software Eng, PostgreSQL` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-software-engineer-python-postgres-global-enveritas-remote-2-to-5-years-300326502285) |
+| **98%** | Software Engineer - Backend, Python/Go, Distributed Systems, Cloud | Cisco | `Python, Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-backend-python-go-distributed-systems-cloud-cisco-bengaluru-0-to-4-years-141026506408) |
 | **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
 | **95%** | Backend Devops Engineer | Embitel Technologies | `DevOps, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-devops-engineer-embitel-bengaluru-2-to-7-years-250926501743) |
 | **95%** | Full Stack Engineer - Platform & Systems | Thinkerbell Labs | `Platform, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-engineer-platform-systems-thinkerbell-labs-bengaluru-2-to-7-years-081026508909) |
@@ -39,7 +40,6 @@
 | **90%** | Backend Developer (MERN | PostgreSQL) | Stacklab | `Backend, PostgreSQL` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-mern-postgresql-stacklab-in-remote-2-to-5-years-150626504417) |
 | **90%** | Software Engineer - Backend | Briefly | `Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-backend-briefly-remote-1-to-2-years-031025502796) |
 | **90%** | AWS DEVOPS ENGINEER | Balihans Software | `DevOps, AWS` | [Apply Now 🔗](https://www.naukri.com/job-listings-aws-devops-engineer-balihans-software-opc-private-limited-remote-2-to-4-years-190625503972) |
-| **90%** | AWS Devops | Insignia Consultancy Solutions | `DevOps, AWS` | [Apply Now 🔗](https://www.naukri.com/job-listings-aws-devops-insignia-consultancy-solutions-remote-2-to-5-years-050824500737) |
 
 ---
 
