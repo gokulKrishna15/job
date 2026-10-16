@@ -1,5 +1,5 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 15, 2026 - 10:31 AM  
+**Date**: October 16, 2026 - 09:24 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
@@ -7,7 +7,7 @@
 ## 📈 Executive Summary
 
 - **Total Jobs Auto-Applied Today**: `0`
-- **Recommended High-Match External Jobs**: `343`
+- **Recommended High-Match External Jobs**: `350`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
@@ -26,20 +26,20 @@
 | Match Score | Job Title | Company | Skills / Tags | Direct Link |
 | :---: | :--- | :--- | :--- | :--- |
 | **98%** | Platform Engineer (Data Platform / DevOps) | Kinara.ai | `DevOps, Platform` | [Apply Now 🔗](https://www.naukri.com/job-listings-platform-engineer-data-platform-devops-kinara-inc-bengaluru-2-to-6-years-270826500460) |
+| **98%** | Backend Developer FastAPI, JavaScript, Python, ExpressJS | Savemom | `FastAPI, Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-fastapi-javascript-python-expressjs-savemom-madurai-1-to-4-years-040725503649) |
+| **98%** | Backend Developer FastAPI,JavaScript,Python,ExpressJS | Jiovio Healthcare | `FastAPI, Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-fastapi-javascript-python-expressjs-jiovio-healthcare-madurai-1-to-3-years-190226500788) |
+| **98%** | Backend Developer Intern (Python, FastAPI) | Starlabs Technologies | `FastAPI, Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-intern-python-fastapi-starlabs-technologies-remote-0-to-1-years-070225507472) |
 | **98%** | Backend Software Engineer - Python/Postgres [ / Global] | Enveritas | `Python, Backend, Software Eng, PostgreSQL` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-software-engineer-python-postgres-global-enveritas-remote-2-to-5-years-300326502285) |
 | **98%** | Software Engineer - Backend, Python/Go, Distributed Systems, Cloud | Cisco | `Python, Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-backend-python-go-distributed-systems-cloud-cisco-bengaluru-0-to-4-years-141026506408) |
 | **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
 | **95%** | Backend Devops Engineer | Embitel Technologies | `DevOps, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-devops-engineer-embitel-bengaluru-2-to-7-years-250926501743) |
-| **95%** | Full Stack Engineer - Platform & Systems | Thinkerbell Labs | `Platform, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-engineer-platform-systems-thinkerbell-labs-bengaluru-2-to-7-years-081026508909) |
+| **95%** | Back End Developer (Python, Flask, FastAPI) | Tyroo | `FastAPI, Python` | [Apply Now 🔗](https://www.naukri.com/job-listings-back-end-developer-python-flask-fastapi-tyroo-media-pvt-ltd-gurugram-2-to-6-years-130225505301) |
 | **95%** | Software Engineer (Frontend Platform), Git Native | Postman | `Platform, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-frontend-platform-git-native-postman-bengaluru-2-to-4-years-280926502625) |
+| **95%** | Full Stack Engineer - Platform & Systems | Thinkerbell Labs | `Platform, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-engineer-platform-systems-thinkerbell-labs-bengaluru-2-to-7-years-081026508909) |
 | **90%** | Full Stack Python Developer | Aritha Consulting Services | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-python-developer-aritha-consulting-services-pvt-ltd-bengaluru-2-to-4-years-071024503244) |
 | **90%** | Full Stack Python Developer | Aritha | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-python-developer-aritha-remote-2-to-4-years-071024503467) |
 | **90%** | Python Backend Developer | BSH Technologies | `Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-backend-developer-bsh-technologiesa-remote-1-to-4-years-210126502820) |
 | **90%** | Python Full Stack Developer | Innovation Techtree | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-full-stack-developer-innovation-techtree-remote-2-to-5-years-150526503896) |
-| **90%** | Backend Software Engineer | Bhyve | `Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-software-engineer-bhyve-remote-1-to-3-years-220526503457) |
-| **90%** | Backend Developer (MERN | PostgreSQL) | Stacklab | `Backend, PostgreSQL` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-developer-mern-postgresql-stacklab-in-remote-2-to-5-years-150626504417) |
-| **90%** | Software Engineer - Backend | Briefly | `Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-backend-briefly-remote-1-to-2-years-031025502796) |
-| **90%** | AWS DEVOPS ENGINEER | Balihans Software | `DevOps, AWS` | [Apply Now 🔗](https://www.naukri.com/job-listings-aws-devops-engineer-balihans-software-opc-private-limited-remote-2-to-4-years-190625503972) |
 
 ---
 
