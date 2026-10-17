@@ -1,5 +1,5 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 17, 2026 - 08:46 AM  
+**Date**: October 17, 2026 - 09:47 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
@@ -7,7 +7,7 @@
 ## 📈 Executive Summary
 
 - **Total Jobs Auto-Applied Today**: `0`
-- **Recommended High-Match External Jobs**: `351`
+- **Recommended High-Match External Jobs**: `350`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
