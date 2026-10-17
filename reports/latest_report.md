@@ -1,5 +1,5 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 16, 2026 - 10:27 AM  
+**Date**: October 17, 2026 - 08:46 AM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
@@ -7,7 +7,7 @@
 ## 📈 Executive Summary
 
 - **Total Jobs Auto-Applied Today**: `0`
-- **Recommended High-Match External Jobs**: `352`
+- **Recommended High-Match External Jobs**: `351`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
@@ -34,12 +34,12 @@
 | **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
 | **95%** | Backend Devops Engineer | Embitel Technologies | `DevOps, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-devops-engineer-embitel-bengaluru-2-to-7-years-250926501743) |
 | **95%** | Back End Developer (Python, Flask, FastAPI) | Tyroo | `FastAPI, Python` | [Apply Now 🔗](https://www.naukri.com/job-listings-back-end-developer-python-flask-fastapi-tyroo-media-pvt-ltd-gurugram-2-to-6-years-130225505301) |
+| **95%** | Software Engineer, Post-Trade Platform (Java/Angular) | Millennium Consulting | `Platform, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-post-trade-platform-java-angular-millennium-consulting-india-private-limited-bengaluru-2-to-6-years-161026924155) |
 | **95%** | Software Engineer (Frontend Platform), Git Native | Postman | `Platform, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-frontend-platform-git-native-postman-bengaluru-2-to-4-years-280926502625) |
 | **95%** | Full Stack Engineer - Platform & Systems | Thinkerbell Labs | `Platform, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-engineer-platform-systems-thinkerbell-labs-bengaluru-2-to-7-years-081026508909) |
 | **90%** | Full Stack Python Developer | Aritha Consulting Services | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-python-developer-aritha-consulting-services-pvt-ltd-bengaluru-2-to-4-years-071024503244) |
 | **90%** | Full Stack Python Developer | Aritha | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-python-developer-aritha-remote-2-to-4-years-071024503467) |
 | **90%** | Python Backend Developer | BSH Technologies | `Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-backend-developer-bsh-technologiesa-remote-1-to-4-years-210126502820) |
-| **90%** | Python Full Stack Developer | Innovation Techtree | `Python, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-full-stack-developer-innovation-techtree-remote-2-to-5-years-150526503896) |
 
 ---
 
