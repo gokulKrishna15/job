@@ -212,66 +212,92 @@ def handle_questionnaire(job_page, config, dry_run=False):
     loc = profile.get("current_location", "Bengaluru")
     
     try:
-        job_page.wait_for_timeout(1500)
-        
-        # 1. Answer chip options (Naukri chatbot pill suggestions e.g. "2", "30", "Yes")
-        chips = job_page.query_selector_all("div.chipMsg, div[class*='chip'], span[class*='chip'], button[class*='chip'], li[class*='chip']")
-        for chip in chips:
-            try:
-                ctxt = (chip.inner_text() or "").strip()
-                if ctxt in [exp, notice, "Yes", "2", "30", loc, "10"]:
-                    chip.evaluate("e => e.click()")
-                    job_page.wait_for_timeout(500)
-            except Exception:
-                pass
+        # Loop through up to 8 conversation rounds to answer sequential questions
+        for round_num in range(8):
+            job_page.wait_for_timeout(1200)
 
-        # 2. Fill standard input & textarea fields inside chatbot/modal
-        inputs = job_page.query_selector_all("div[class*='chatBot'] input, div[class*='Drawer'] input, div.chatbot input, div.questionnaire input, div.modal-container input, textarea")
-        for inp in inputs:
-            try:
-                if inp.get_attribute("type") in ["hidden", "file"]:
-                    continue
-                placeholder = (inp.get_attribute("placeholder") or "").lower()
-                aria_label = (inp.get_attribute("aria-label") or "").lower()
-                name_attr = (inp.get_attribute("name") or "").lower()
-                combined = f"{placeholder} {aria_label} {name_attr}"
-
-                if any(k in combined for k in ["exp", "year"]):
-                    inp.fill(exp)
-                elif any(k in combined for k in ["notice", "day"]):
-                    inp.fill(notice)
-                elif any(k in combined for k in ["expected", "exp ctc"]):
-                    inp.fill(expected_ctc)
-                elif any(k in combined for k in ["ctc", "salary", "current"]):
-                    inp.fill(current_ctc)
-                elif "location" in combined or "city" in combined:
-                    inp.fill(loc)
-                else:
-                    inp.fill(exp)
-            except Exception:
-                pass
-
-        # 3. Select 'Yes' radio buttons or checkboxes if present
-        yes_btns = job_page.query_selector_all("label:has-text('Yes'), input[value='Yes'], button:has-text('Yes')")
-        for yb in yes_btns[:3]:
-            try:
-                yb.evaluate("e => e.click()")
-                job_page.wait_for_timeout(300)
-            except Exception:
-                pass
-
-        # 4. Click Submit / Save / Apply inside chatbot or modal
-        if not dry_run:
-            sub_btn = job_page.query_selector("button:has-text('Submit'), button:has-text('Save'), button:has-text('Apply'), div.bot-submit button, button.submit-btn, div[class*='chatbot'] button:has-text('Save')")
-            if sub_btn:
-                sub_btn.evaluate("e => e.click()")
-                job_page.wait_for_timeout(2000)
+            # Check if chatbot already finished or show success
+            body_txt = (job_page.inner_text("body") or "").lower()
+            if any(k in body_txt for k in ["application sent", "applied successfully", "you have applied", "thank you for showing interest"]):
                 return True
-            else:
-                return True
-        else:
-            print("[DRY-RUN] Filled questionnaire answers and would click Submit.")
-            return True
+
+            action_taken = False
+
+            # 1. Answer chip options / pills
+            chips = job_page.query_selector_all("div.chipMsg, div[class*='chip'], span[class*='chip'], button[class*='chip'], li[class*='chip'], div[class*='bot-chip']")
+            for chip in chips:
+                try:
+                    if chip.is_visible():
+                        ctxt = (chip.inner_text() or "").strip()
+                        if ctxt.lower() in [exp, notice, "yes", "2", "3", "30", "15", "immediate", loc.lower(), "10", "12", "any", "agree"]:
+                            chip.click()
+                            job_page.wait_for_timeout(800)
+                            action_taken = True
+                            break
+                except Exception:
+                    pass
+
+            # 2. Answer radio buttons / checkboxes (e.g. Yes / Agree)
+            radios = job_page.query_selector_all("label:has-text('Yes'), input[value='Yes'], button:has-text('Yes'), label:has-text('Agree')")
+            for r in radios:
+                try:
+                    if r.is_visible():
+                        r.click()
+                        job_page.wait_for_timeout(500)
+                        action_taken = True
+                except Exception:
+                    pass
+
+            # 3. Fill text inputs / textareas
+            inputs = job_page.query_selector_all("input[type='text'], input:not([type]), textarea, div[class*='chatbot'] input")
+            for inp in inputs:
+                try:
+                    if inp.is_visible() and not inp.input_value():
+                        placeholder = (inp.get_attribute("placeholder") or "").lower()
+                        aria_label = (inp.get_attribute("aria-label") or "").lower()
+                        combined = f"{placeholder} {aria_label}"
+
+                        if any(k in combined for k in ["exp", "year"]):
+                            inp.fill(exp)
+                        elif any(k in combined for k in ["notice", "day"]):
+                            inp.fill(notice)
+                        elif any(k in combined for k in ["expected", "exp ctc"]):
+                            inp.fill(expected_ctc)
+                        elif any(k in combined for k in ["ctc", "salary", "current"]):
+                            inp.fill(current_ctc)
+                        elif any(k in combined for k in ["location", "city"]):
+                            inp.fill(loc)
+                        else:
+                            inp.fill(exp)
+                        
+                        job_page.wait_for_timeout(400)
+                        action_taken = True
+                        
+                        # Press Enter to send answer if in chat input
+                        inp.press("Enter")
+                        job_page.wait_for_timeout(800)
+                except Exception:
+                    pass
+
+            # 4. Click Next / Continue / Submit / Save button if visible
+            btns = job_page.query_selector_all("button:has-text('Submit'), button:has-text('Save'), button:has-text('Next'), button:has-text('Continue'), button:has-text('Apply'), button.submit-btn, button[class*='send']")
+            for b in btns:
+                try:
+                    if b.is_visible():
+                        b.click()
+                        job_page.wait_for_timeout(1000)
+                        action_taken = True
+                        break
+                except Exception:
+                    pass
+
+            if not action_taken:
+                # If no interactive elements found in this pass, wait briefly before next check
+                job_page.wait_for_timeout(1000)
+
+        # Final wait for submission to register
+        job_page.wait_for_timeout(2000)
+        return True
             
     except Exception as e:
         print(f"[QUESTIONNAIRE LOG] Exception while answering questions: {e}")
@@ -413,20 +439,21 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
                         # Check if card has immediate apply or opens new tab
                         print(f"\n[EVALUATING] {title} at {company}")
 
-                        # Ensure element is visible in view before clicking
+                        # Ensure element is visible in view
                         try:
                             title_el.scroll_into_view_if_needed()
                         except Exception:
                             pass
 
-                        # Open job in new page/tab to safely process
-                        with page.context.expect_page(timeout=10000) as new_page_info:
-                            title_el.click()
-
-                        
-                        job_page = new_page_info.value
-                        job_page.wait_for_load_state("domcontentloaded")
-                        job_page.wait_for_timeout(2000)
+                        # Open job in new tab using direct URL navigation (immune to DOM re-renders)
+                        job_page = page.context.new_page()
+                        try:
+                            job_page.goto(job_url, wait_until="domcontentloaded", timeout=20000)
+                            job_page.wait_for_timeout(2500)
+                        except Exception as nav_e:
+                            print(f"[TIMEOUT] Page load timed out for job: {title}")
+                            job_page.close()
+                            continue
 
                         # Check apply buttons
                         apply_btn = job_page.query_selector("button:has-text('Apply'), button#apply-button, button.apply-button")
