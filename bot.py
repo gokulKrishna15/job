@@ -230,8 +230,8 @@ def handle_questionnaire(job_page, config, dry_run=False):
                     if chip.is_visible():
                         ctxt = (chip.inner_text() or "").strip()
                         if ctxt.lower() in [exp, notice, "yes", "2", "3", "30", "15", "immediate", loc.lower(), "10", "12", "any", "agree"]:
-                            chip.click()
-                            job_page.wait_for_timeout(800)
+                            chip.evaluate("e => e.click()")
+                            job_page.wait_for_timeout(600)
                             action_taken = True
                             break
                 except Exception:
@@ -242,8 +242,8 @@ def handle_questionnaire(job_page, config, dry_run=False):
             for r in radios:
                 try:
                     if r.is_visible():
-                        r.click()
-                        job_page.wait_for_timeout(500)
+                        r.evaluate("e => e.click()")
+                        job_page.wait_for_timeout(400)
                         action_taken = True
                 except Exception:
                     pass
@@ -258,24 +258,24 @@ def handle_questionnaire(job_page, config, dry_run=False):
                         combined = f"{placeholder} {aria_label}"
 
                         if any(k in combined for k in ["exp", "year"]):
-                            inp.fill(exp)
+                            inp.fill(exp, timeout=1000)
                         elif any(k in combined for k in ["notice", "day"]):
-                            inp.fill(notice)
+                            inp.fill(notice, timeout=1000)
                         elif any(k in combined for k in ["expected", "exp ctc"]):
-                            inp.fill(expected_ctc)
+                            inp.fill(expected_ctc, timeout=1000)
                         elif any(k in combined for k in ["ctc", "salary", "current"]):
-                            inp.fill(current_ctc)
+                            inp.fill(current_ctc, timeout=1000)
                         elif any(k in combined for k in ["location", "city"]):
-                            inp.fill(loc)
+                            inp.fill(loc, timeout=1000)
                         else:
-                            inp.fill(exp)
+                            inp.fill(exp, timeout=1000)
                         
-                        job_page.wait_for_timeout(400)
+                        job_page.wait_for_timeout(300)
                         action_taken = True
                         
                         # Press Enter to send answer if in chat input
-                        inp.press("Enter")
-                        job_page.wait_for_timeout(800)
+                        inp.press("Enter", timeout=1000)
+                        job_page.wait_for_timeout(600)
                 except Exception:
                     pass
 
@@ -284,8 +284,8 @@ def handle_questionnaire(job_page, config, dry_run=False):
             for b in btns:
                 try:
                     if b.is_visible():
-                        b.click()
-                        job_page.wait_for_timeout(1000)
+                        b.evaluate("e => e.click()")
+                        job_page.wait_for_timeout(800)
                         action_taken = True
                         break
                 except Exception:
