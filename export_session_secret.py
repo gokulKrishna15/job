@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
@@ -13,17 +14,18 @@ def export_secret():
         secret_content = f.read().strip()
 
     print("==================================================================")
-    print("   🔑 GITHUB SECRET EXTRACTOR (FOR 100% FREE LAPTOP-FREE BOT)     ")
+    print("   GITHUB SECRET EXTRACTOR (FOR 100% FREE LAPTOP-FREE BOT)        ")
     print("==================================================================")
     print("To enable daily cloud runs on GitHub (without turning on your laptop):\n")
     print("1. Go to your GitHub Repository -> Settings -> Secrets and variables -> Actions")
-    print("2. Click 'New repository secret'")
+    print("2. Click 'New repository secret' (or update existing)")
     print("3. Secret Name: NAUKRI_STORAGE_STATE")
     print("4. Secret Value: (Copy and paste the JSON block below)\n")
     print("-------------------- COPY FROM HERE --------------------")
+    sys.stdout.reconfigure(encoding="utf-8")
     print(secret_content)
     print("--------------------- COPY TO HERE ---------------------\n")
-    print("[SUCCESS] After pasting into GitHub Secrets, your bot runs automatically 24/7 in the cloud for FREE!")
+    print("[SUCCESS] After pasting into GitHub Secrets, your bot runs automatically 24/7 in the cloud!")
 
 if __name__ == "__main__":
     export_secret()
