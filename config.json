@@ -32,7 +32,10 @@
     "Python Developer",
     "FastAPI Developer",
     "DevOps Engineer",
-    "Backend Engineer"
+    "Backend Engineer",
+    "Python Backend",
+    "Cloud Engineer",
+    "Site Reliability Engineer"
   ],
   "negative_keywords": [
     "Java",
@@ -51,7 +54,8 @@
   "locations": [
     "Bengaluru",
     "Bangalore",
-    "Remote"
+    "Remote",
+    "Hyderabad"
   ],
   "experience_years": 2,
   "daily_apply_limit": 50,

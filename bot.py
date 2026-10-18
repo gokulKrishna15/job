@@ -98,15 +98,25 @@ def init_logs():
 
 def log_application(title, company, location, url, status):
     init_logs()
-    with open(HISTORY_FILE, "a", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), title, company, location, url, status])
+    for attempt in range(4):
+        try:
+            with open(HISTORY_FILE, "a", newline="", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                writer.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), title, company, location, url, status])
+            break
+        except Exception:
+            time.sleep(0.5)
 
 def log_skipped(title, company, url, reason):
     init_logs()
-    with open(SKIPPED_FILE, "a", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), title, company, url, reason])
+    for attempt in range(4):
+        try:
+            with open(SKIPPED_FILE, "a", newline="", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                writer.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), title, company, url, reason])
+            break
+        except Exception:
+            time.sleep(0.5)
 
 def count_today_successful_applications():
     init_logs()
@@ -337,8 +347,8 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
     locations = config.get("locations", ["Bangalore"])
     exp = config.get("experience_years", 2)
     
-    # Calculate fair quota per category to guarantee a balanced mix of roles across 100 applications
-    per_keyword_cap = max(15, daily_limit // len(keywords)) + 3
+    # Calculate fair quota per category to guarantee a balanced mix of roles across target applications
+    per_keyword_cap = max(20, daily_limit // len(keywords)) + 10
 
     total_applied = 0
     print(f"\n[JOB SEARCH] Starting high-yield multi-role search. Target Daily Limit: {daily_limit}")
@@ -355,7 +365,7 @@ def apply_to_jobs(page, config, dry_run=False, force_rerun=False):
             if total_applied >= daily_limit or kw_applied >= per_keyword_cap:
                 break
 
-            for page_num in range(1, 6):
+            for page_num in range(1, 13):
                 if total_applied >= daily_limit or kw_applied >= per_keyword_cap:
                     break
                     
