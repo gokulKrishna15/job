@@ -591,6 +591,23 @@ def main():
             window.chrome = { runtime: {} };
         """)
 
+        # Strict Pre-flight Auth Verification
+        print("[AUTH CHECK] Verifying active session with Naukri...")
+        page.goto("https://www.naukri.com/mnjuser/profile", wait_until="domcontentloaded", timeout=25000)
+        page.wait_for_timeout(3000)
+        
+        current_url = page.url
+        body_text = (page.inner_text("body") or "").lower()
+        if "nlogin" in current_url or "login" in current_url or "sign in" in body_text and "logout" not in body_text and "profile" not in body_text:
+            print("\n" + "="*60)
+            print(" [CRITICAL AUTH FAILURE] Saved session is expired or invalid!")
+            print(" Naukri redirected to login page. Please run 'python login.py' to renew session.")
+            print("="*60 + "\n")
+            browser.close()
+            sys.exit(1)
+        else:
+            print("[AUTH CHECK SUCCESS] Session is actively authenticated as logged in user!")
+
         # 1. Profile Booster
         if config.get("enable_profile_boost", True):
             boost_profile(page, config, dry_run=is_dry_run)
