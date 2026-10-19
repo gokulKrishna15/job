@@ -1,5 +1,5 @@
 # 📊 Daily Naukri Automation & Job Intelligence Report
-**Date**: October 19, 2026 - 10:19 AM  
+**Date**: October 19, 2026 - 12:03 PM  
 **Candidate**: S Gokul Krishna (DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL))
 
 ---
@@ -7,16 +7,16 @@
 ## 📈 Executive Summary
 
 - **Total Jobs Auto-Applied Today**: `50`
-- **Recommended High-Match External Jobs**: `413`
+- **Recommended High-Match External Jobs**: `471`
 - **Profile Status**: `Active Today (Headline Refreshed)`
 
 ### Category Distribution
-- **DevOps Roles**: 9
+- **DevOps Roles**: 10
 - **Backend Developer Roles**: 0
 - **FastAPI Developer Roles**: 1
 - **Python Developer Roles**: 4
-- **Platform & Full Stack Roles**: 4
-- **Software Engineering Roles**: 32
+- **Platform & Full Stack Roles**: 5
+- **Software Engineering Roles**: 30
 
 ---
 
@@ -35,11 +35,11 @@
 | **95%** | Devops Engineer(CI/CD) | Telloquent | `DevOps, CI/CD` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530) |
 | **95%** | Backend Devops Engineer | Embitel Technologies | `DevOps, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-backend-devops-engineer-embitel-bengaluru-2-to-7-years-250926501743) |
 | **95%** | Full Stack Engineer - Platform & Systems | Thinkerbell Labs | `Platform, FullStack` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-engineer-platform-systems-thinkerbell-labs-bengaluru-2-to-7-years-081026508909) |
+| **95%** | DevOps Engineer ( Backend ) | Zoniqx | `DevOps, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-devops-engineer-backend-zoniqx-hyderabad-1-to-6-years-180325501072) |
+| **95%** | Python Devops Engineer | Redolent | `DevOps, Python` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-devops-engineer-redolent-inc-warangal-hyderabad-nizamabad-2-to-7-years-210726504452) |
 | **90%** | Python Django Backend Developer | Gavista Tech | `Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-python-django-backend-developer-gavista-tech-bengaluru-2-to-7-years-150720500022) |
 | **90%** | AI Software Engineer (Python/Java) | Zimperium | `Python, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-ai-software-engineer-python-java-zimperium-inc-bengaluru-1-to-6-years-190326502418) |
 | **90%** | Full-Stack Developer (Backend-Focused) - Python Stack | Kuvaka Tech | `Python, Backend` | [Apply Now 🔗](https://www.naukri.com/job-listings-full-stack-developer-backend-focused-python-stack-hireto-by-kuvaka-tech-bengaluru-1-to-6-years-110826507360) |
-| **90%** | Software Engineer (Jr. Fullstack) - - GEVT | Getinz Techno Services | `FullStack, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-jr-fullstack-gevt-getinz-techno-services-bengaluru-2-to-7-years-110326505906) |
-| **90%** | Software Engineer - Backend | Uplabh | `Backend, Software Eng` | [Apply Now 🔗](https://www.naukri.com/job-listings-software-engineer-backend-uplabh-bengaluru-1-to-2-years-191224501584) |
 
 ---
 
@@ -47,28 +47,28 @@
 
 | Time | Job Title | Company | Location | Status | Link |
 | :--- | :--- | :--- | :--- | :---: | :--- |
-| 08:53:35 | Software Engineer | Emsec | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-software-engineer-emsec-bengaluru-1-to-4-years-180926034086) |
-| 08:54:41 | Python Software Developer | Tutorcloud AI Pvt Ltd | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-software-developer-tutorcloud-ai-pvt-ltd-bengaluru-1-to-5-years-290926015452) |
-| 08:56:56 | Artificial Intelligence Engineer | Tredence | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-artificial-intelligence-engineer-tredence-bengaluru-2-to-5-years-091026023489) |
-| 08:57:47 | Senior Analyst Technology Transformation | Incorp Advisory Services | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-senior-analyst-technology-transformation-incorp-advisory-services-bengaluru-2-to-5-years-061026030581) |
-| 08:58:34 | Software Development Test Engineer - | | Popclub | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-software-development-test-engineer-popclub-bengaluru-1-to-3-years-250926006122) |
-| 09:00:27 | Human Resource Recruiter | Ramxora Ai | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-human-resource-recruiter-ramxora-private-limited-bengaluru-2-to-2-years-200926008708) |
-| 09:07:34 | Hiring For MLops Engineer | Hiring for Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-hiring-for-mlops-engineer-glauben-technologies-pune-chennai-bengaluru-2-to-7-years-171026012132) |
-| 09:10:38 | Relevance Engineer | Netcore Cloud | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-relevance-engineer-netcore-cloud-bengaluru-1-to-2-years-131026012853) |
-| 09:12:08 | IT Infrastructure Analyst | Interspence Solutions Llp | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-it-infrastructure-analyst-interspence-solutions-llp-pune-bengaluru-mumbai-all-areas-1-to-5-years-161026000242) |
-| 09:12:56 | UNIX SQL (2-3yrs) @ Infosys | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-unix-sql-2-3yrs-infosys-infosys-hyderabad-pune-bengaluru-2-to-3-years-220926051049) |
-| 09:33:34 | python developer | Spigot Software | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-developer-spigot-software-bengaluru-2-to-7-years-011026012242) |
-| 09:35:01 | Python Developer - FastAPI / Flask (Product Engineering) | I2global Virtual Learning | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-developer-fastapi-flask-product-engineering-i2global-virtual-learning-bengaluru-2-to-4-years-250926013235) |
-| 09:36:36 | Python Developer - Data Processing | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-developer-data-processing-infosys-noida-hyderabad-bengaluru-2-to-5-years-061026030495) |
-| 09:39:56 | Fullstack Developer (Nextjs ,Nodejs,Python) | Ramxora Private Limited (Ramxora.AI) | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-fullstack-developer-nextjs-nodejs-python-ramxora-private-limited-ramxora-ai-bengaluru-2-to-3-years-230926007822) |
-| 09:42:39 | Devops& Cloud infrastructure Engineer | Ramxora Private Limited (Ramxora.Ai) | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-devops-cloud-infrastructure-engineer-ramxora-private-limited-ramxora-ai-bengaluru-2-to-3-years-141026036560) |
-| 09:45:34 | Kusto Engineer | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-kusto-engineer-infosys-hyderabad-bengaluru-mumbai-all-areas-2-to-5-years-250926036395) |
-| 09:45:45 | Kusto Engineer | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-kusto-engineer-infosys-hyderabad-pune-bengaluru-2-to-5-years-250926036224) |
-| 09:46:00 | Integration Engineer | Version 1 | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-integration-engineer-version-1-bengaluru-2-to-5-years-051026014527) |
-| 09:46:14 | Automation Engineer | PwC | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-automation-engineer-pwc-hyderabad-chennai-bengaluru-2-to-4-years-071026023451) |
-| 09:46:59 | Scenario Validation Engineer ( Autonomous Driving Planner Testing) | L&T Technology Services (LTTS) | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-scenario-validation-engineer-autonomous-driving-planner-testing-l-t-technology-services-ltts-bengaluru-2-to-6-years-240926000004) |
-| 09:54:37 | Fullstack Developer (Agentic/ Gen AI) | Tech Mahindra | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-fullstack-developer-agentic-gen-ai-tech-mahindra-noida-pune-bengaluru-0-to-5-years-300926018042) |
-| 09:54:51 | Mobile Application Developer | Ramxora Ai | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-mobile-application-developer-ramxora-private-limited-bengaluru-2-to-3-years-220926014753) |
-| 09:56:48 | React Developer | 2-4 Years | Immediate Joiner | Bangalore | Sketch Brahma Technologies | Bangalore | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-react-developer-2-4-years-immediate-joiner-bangalore-sketch-brahma-technologies-bengaluru-2-to-4-years-290926035915) |
-| 09:56:59 | Dot Net Developer | Hiring For a Well known IT Company | Bangalore | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-dot-net-developer-om-consulting-bengaluru-2-to-6-years-290926019893) |
-| 09:57:10 | Talent Acquisition Specialist | Ramxora Private Limited (Ramxora Ai) | Bangalore | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-talent-acquisition-specialist-ramxora-private-limited-ramxora-ai-bengaluru-2-to-3-years-290926018579) |
+| 10:24:24 | Software Engineer | Emsec | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-software-engineer-emsec-bengaluru-1-to-4-years-180926034086) |
+| 10:25:30 | Python Software Developer | Tutorcloud AI Pvt Ltd | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-software-developer-tutorcloud-ai-pvt-ltd-bengaluru-1-to-5-years-290926015452) |
+| 10:27:48 | Artificial Intelligence Engineer | Tredence | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-artificial-intelligence-engineer-tredence-bengaluru-2-to-5-years-091026023489) |
+| 10:28:38 | Senior Analyst Technology Transformation | Incorp Advisory Services | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-senior-analyst-technology-transformation-incorp-advisory-services-bengaluru-2-to-5-years-061026030581) |
+| 10:29:20 | Software Development Test Engineer - | | Popclub | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-software-development-test-engineer-popclub-bengaluru-1-to-3-years-250926006122) |
+| 10:31:22 | Human Resource Recruiter | Ramxora Ai | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-human-resource-recruiter-ramxora-private-limited-bengaluru-2-to-2-years-200926008708) |
+| 10:38:27 | Hiring For MLops Engineer | Hiring for Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-hiring-for-mlops-engineer-glauben-technologies-pune-chennai-bengaluru-2-to-7-years-171026012132) |
+| 10:43:06 | Relevance Engineer | Netcore Cloud | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-relevance-engineer-netcore-cloud-bengaluru-1-to-2-years-131026012853) |
+| 10:43:17 | UNIX SQL (2-3yrs) @ Infosys | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-unix-sql-2-3yrs-infosys-infosys-hyderabad-pune-bengaluru-2-to-3-years-220926051049) |
+| 11:03:59 | python developer | Spigot Software | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-developer-spigot-software-bengaluru-2-to-7-years-011026012242) |
+| 11:05:27 | Python Developer - FastAPI / Flask (Product Engineering) | I2global Virtual Learning | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-developer-fastapi-flask-product-engineering-i2global-virtual-learning-bengaluru-2-to-4-years-250926013235) |
+| 11:07:00 | Python Developer - Data Processing | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-python-developer-data-processing-infosys-noida-hyderabad-bengaluru-2-to-5-years-061026030495) |
+| 11:09:49 | Fullstack Developer (Nextjs ,Nodejs,Python) | Ramxora Private Limited (Ramxora.AI) | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-fullstack-developer-nextjs-nodejs-python-ramxora-private-limited-ramxora-ai-bengaluru-2-to-3-years-230926007822) |
+| 11:11:55 | Devops& Cloud infrastructure Engineer | Ramxora Private Limited (Ramxora.Ai) | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-devops-cloud-infrastructure-engineer-ramxora-private-limited-ramxora-ai-bengaluru-2-to-3-years-141026036560) |
+| 11:15:24 | Kusto Engineer | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-kusto-engineer-infosys-hyderabad-bengaluru-mumbai-all-areas-2-to-5-years-250926036395) |
+| 11:15:36 | Kusto Engineer | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-kusto-engineer-infosys-hyderabad-pune-bengaluru-2-to-5-years-250926036224) |
+| 11:15:50 | Integration Engineer | Version 1 | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-integration-engineer-version-1-bengaluru-2-to-5-years-051026014527) |
+| 11:16:49 | Automation Engineer | PwC | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-automation-engineer-pwc-hyderabad-chennai-bengaluru-2-to-4-years-071026023451) |
+| 11:17:43 | Scenario Validation Engineer ( Autonomous Driving Planner Testing) | L&T Technology Services (LTTS) | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-scenario-validation-engineer-autonomous-driving-planner-testing-l-t-technology-services-ltts-bengaluru-2-to-6-years-240926000004) |
+| 11:26:56 | Fullstack Developer (Agentic/ Gen AI) | Tech Mahindra | Bangalore | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-fullstack-developer-agentic-gen-ai-tech-mahindra-noida-pune-bengaluru-0-to-5-years-300926018042) |
+| 11:27:11 | Mobile Application Developer | Ramxora Ai | Bangalore | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-mobile-application-developer-ramxora-private-limited-bengaluru-2-to-3-years-220926014753) |
+| 11:28:09 | Software Engineer | Morningstar | Remote | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-software-engineer-morningstar-india-p-ltd-navi-mumbai-2-to-5-years-250926030083) |
+| 11:36:50 | Azure Devops Engineer | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-azure-devops-engineer-infosys-hyderabad-pune-bengaluru-2-to-5-years-190826000011) |
+| 11:37:29 | Azure Devops Engineer | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-azure-devops-engineer-infosys-hyderabad-chennai-bengaluru-2-to-5-years-260826023699) |
+| 11:37:41 | Azure Devops Engineer | Infosys | Bengaluru | `APPLIED` | [View 🔗](https://www.naukri.com/job-listings-azure-devops-engineer-infosys-hyderabad-chennai-bengaluru-2-to-5-years-240826016040) |
