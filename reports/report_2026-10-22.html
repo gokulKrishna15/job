@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Naukri Automation Dashboard - S Gokul Krishna</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --primary: #38bdf8;
+            --accent: #818cf8;
+            --success: #34d399;
+            --warning: #fbbf24;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 30px;
+            background-image: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 10px;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .table-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .score-high {
+            background: rgba(52, 211, 153, 0.2);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+        .badge-success {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .badge-info {
+            background: rgba(129, 140, 248, 0.2);
+            color: #818cf8;
+        }
+        .tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            color: #cbd5e1;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            margin-right: 4px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .btn-apply {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+        }
+        .btn-apply:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Naukri Job Intelligence & Automation Dashboard</h1>
+                <div class="subtitle">Candidate: <strong>S Gokul Krishna</strong> | DevOps Engineer & Backend Developer (Python / FastAPI / PostgreSQL)</div>
+            </div>
+            <div style="text-align: right;">
+                <div style="background: rgba(52, 211, 153, 0.15); border: 1px solid rgba(52, 211, 153, 0.3); color: #34d399; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                    <span style="width: 8px; height: 8px; background: #34d399; border-radius: 50%; display: inline-block;"></span> LIVE REFRESHED: October 22, 2026 - 10:12 AM
+                </div>
+            </div>
+        </header>
+
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Auto-Applied Today</div>
+                <div class="stat-value">50</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Recommended External Jobs</div>
+                <div class="stat-value" style="color: var(--accent);">422</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Profile Visibility Status</div>
+                <div class="stat-value" style="color: var(--success); font-size: 1.3rem; margin-top: 15px;">🟢 Active Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">DevOps & Backend Ratio</div>
+                <div class="stat-value" style="font-size: 1.4rem; color: #f472b6; margin-top: 15px;">
+                    5 DevOps / 6 Backend
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">🌟 High-Priority External Jobs (Manual Apply Recommended)</div>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Match Score</th>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Skill Tags</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td><span class="badge score-high">98% Match</span></td>
+            <td><strong>Backend Developer FastAPI, JavaScript, Python, ExpressJS</strong></td>
+            <td>Savemom</td>
+            <td><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">Backend</span></td>
+            <td><a href="https://www.naukri.com/job-listings-backend-developer-fastapi-javascript-python-expressjs-savemom-madurai-1-to-4-years-040725503649" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">98% Match</span></td>
+            <td><strong>Backend Developer FastAPI,JavaScript,Python,ExpressJS</strong></td>
+            <td>Jiovio Healthcare</td>
+            <td><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">Backend</span></td>
+            <td><a href="https://www.naukri.com/job-listings-backend-developer-fastapi-javascript-python-expressjs-jiovio-healthcare-madurai-1-to-3-years-190226500788" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">98% Match</span></td>
+            <td><strong>Backend Developer Intern (Python, FastAPI)</strong></td>
+            <td>Starlabs Technologies</td>
+            <td><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">Backend</span></td>
+            <td><a href="https://www.naukri.com/job-listings-backend-developer-intern-python-fastapi-starlabs-technologies-remote-0-to-1-years-070225507472" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">98% Match</span></td>
+            <td><strong>Platform Engineer (Data Platform / DevOps)</strong></td>
+            <td>Kinara.ai</td>
+            <td><span class="tag">DevOps</span><span class="tag">Platform</span></td>
+            <td><a href="https://www.naukri.com/job-listings-platform-engineer-data-platform-devops-kinara-inc-bengaluru-2-to-6-years-270826500460" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">95% Match</span></td>
+            <td><strong>Back End Developer (Python, Flask, FastAPI)</strong></td>
+            <td>Tyroo</td>
+            <td><span class="tag">FastAPI</span><span class="tag">Python</span></td>
+            <td><a href="https://www.naukri.com/job-listings-back-end-developer-python-flask-fastapi-tyroo-media-pvt-ltd-gurugram-2-to-6-years-130225505301" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">95% Match</span></td>
+            <td><strong>Devops Engineer(CI/CD)</strong></td>
+            <td>Telloquent</td>
+            <td><span class="tag">DevOps</span><span class="tag">CI/CD</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-engineer-ci-cd-telloquent-solutions-bengaluru-2-to-5-years-221125501530" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">95% Match</span></td>
+            <td><strong>Backend Devops Engineer</strong></td>
+            <td>Embitel Technologies</td>
+            <td><span class="tag">DevOps</span><span class="tag">Backend</span></td>
+            <td><a href="https://www.naukri.com/job-listings-backend-devops-engineer-embitel-bengaluru-2-to-7-years-250926501743" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">95% Match</span></td>
+            <td><strong>Full Stack Engineer - Platform & Systems</strong></td>
+            <td>Thinkerbell Labs</td>
+            <td><span class="tag">Platform</span><span class="tag">FullStack</span></td>
+            <td><a href="https://www.naukri.com/job-listings-full-stack-engineer-platform-systems-thinkerbell-labs-bengaluru-2-to-7-years-081026508909" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Python Django Backend Developer</strong></td>
+            <td>Gavista Tech</td>
+            <td><span class="tag">Python</span><span class="tag">Backend</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-django-backend-developer-gavista-tech-bengaluru-2-to-7-years-150720500022" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>AI Software Engineer (Python/Java)</strong></td>
+            <td>Zimperium</td>
+            <td><span class="tag">Python</span><span class="tag">Software Eng</span></td>
+            <td><a href="https://www.naukri.com/job-listings-ai-software-engineer-python-java-zimperium-inc-bengaluru-1-to-6-years-190326502418" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Full-Stack Developer (Backend-Focused) - Python Stack</strong></td>
+            <td>Kuvaka Tech</td>
+            <td><span class="tag">Python</span><span class="tag">Backend</span></td>
+            <td><a href="https://www.naukri.com/job-listings-full-stack-developer-backend-focused-python-stack-hireto-by-kuvaka-tech-bengaluru-1-to-6-years-110826507360" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Software Engineer (Jr. Fullstack) - - GEVT</strong></td>
+            <td>Getinz Techno Services</td>
+            <td><span class="tag">FullStack</span><span class="tag">Software Eng</span></td>
+            <td><a href="https://www.naukri.com/job-listings-software-engineer-jr-fullstack-gevt-getinz-techno-services-bengaluru-2-to-7-years-110326505906" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Software Engineer - Backend</strong></td>
+            <td>Uplabh</td>
+            <td><span class="tag">Backend</span><span class="tag">Software Eng</span></td>
+            <td><a href="https://www.naukri.com/job-listings-software-engineer-backend-uplabh-bengaluru-1-to-2-years-191224501584" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Senior Backend Software Engineer</strong></td>
+            <td>Kaizen Institute</td>
+            <td><span class="tag">Backend</span><span class="tag">Software Eng</span></td>
+            <td><a href="https://www.naukri.com/job-listings-senior-backend-software-engineer-kaizen-institute-india-pvt-ltd-kolkata-mumbai-new-delhi-hyderabad-pune-chennai-bengaluru-2-to-5-years-121124502129" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Staff Software Engineer, Backend</strong></td>
+            <td>Toast</td>
+            <td><span class="tag">Backend</span><span class="tag">Software Eng</span></td>
+            <td><a href="https://www.naukri.com/job-listings-staff-software-engineer-backend-toast-bengaluru-1-to-3-years-220926500274" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Software Engineer ( Python+Data Science)</strong></td>
+            <td>Talent Folks</td>
+            <td><span class="tag">Python</span><span class="tag">Software Eng</span></td>
+            <td><a href="https://www.naukri.com/job-listings-software-engineer-python-data-science-talent-folks-bengaluru-2-to-5-years-200726504616" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Python Backend Developer</strong></td>
+            <td>BSH Technologies</td>
+            <td><span class="tag">Python</span><span class="tag">Backend</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-backend-developer-bsh-technologiesa-remote-1-to-4-years-210126502820" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Backend Software Engineer</strong></td>
+            <td>Bhyve</td>
+            <td><span class="tag">Backend</span><span class="tag">Software Eng</span></td>
+            <td><a href="https://www.naukri.com/job-listings-backend-software-engineer-bhyve-remote-1-to-3-years-220526503457" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Backend Developer (MERN | PostgreSQL)</strong></td>
+            <td>Stacklab</td>
+            <td><span class="tag">Backend</span><span class="tag">PostgreSQL</span></td>
+            <td><a href="https://www.naukri.com/job-listings-backend-developer-mern-postgresql-stacklab-in-remote-2-to-5-years-150626504417" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge score-high">90% Match</span></td>
+            <td><strong>Software Engineer - Backend</strong></td>
+            <td>Briefly</td>
+            <td><span class="tag">Backend</span><span class="tag">Software Eng</span></td>
+            <td><a href="https://www.naukri.com/job-listings-software-engineer-backend-briefly-remote-1-to-2-years-031025502796" target="_blank" class="btn btn-apply">Apply on Company Site ↗</a></td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title">🤖 Today's Auto-Applied Naukri Jobs</div>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:40:26</td>
+            <td><strong>Python Software Developer</strong></td>
+            <td>Tutorcloud AI Pvt Ltd</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-software-developer-tutorcloud-ai-pvt-ltd-bengaluru-1-to-5-years-290926015452" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:42:08</td>
+            <td><strong>Artificial Intelligence Engineer</strong></td>
+            <td>Tredence</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-artificial-intelligence-engineer-tredence-bengaluru-2-to-5-years-091026023489" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:44:13</td>
+            <td><strong>Software Development Test Engineer - |</strong></td>
+            <td>Popclub</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-software-development-test-engineer-popclub-bengaluru-1-to-3-years-250926006122" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:44:58</td>
+            <td><strong>Senior Analyst Technology Transformation</strong></td>
+            <td>Incorp Advisory Services</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-senior-analyst-technology-transformation-incorp-advisory-services-bengaluru-2-to-5-years-061026030581" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:46:25</td>
+            <td><strong>Human Resource Recruiter</strong></td>
+            <td>Ramxora Ai</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-human-resource-recruiter-ramxora-private-limited-bengaluru-2-to-2-years-200926008708" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:57:40</td>
+            <td><strong>Linux & Infrastructure Technical Support Engineer</strong></td>
+            <td>Wipro</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-linux-infrastructure-technical-support-engineer-wipro-bengaluru-1-to-4-years-221026011890" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:58:06</td>
+            <td><strong>ENGINEER - Google cloud Monitoring and Logging</strong></td>
+            <td>Happiest Minds Technologies</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-engineer-google-cloud-monitoring-and-logging-happiest-minds-technologies-bengaluru-1-to-3-years-211026012356" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:58:40</td>
+            <td><strong>Postgresql Database Engineer</strong></td>
+            <td>Zarthi</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-postgresql-database-engineer-zarthi-noida-bengaluru-1-to-3-years-201026007844" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:58:51</td>
+            <td><strong>ENGINEER - Google cloud Monitoring and Logging</strong></td>
+            <td>Happiest Minds Technologies</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-engineer-google-cloud-monitoring-and-logging-happiest-minds-technologies-bengaluru-1-to-3-years-211026012348" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:59:27</td>
+            <td><strong>IT Specialist</strong></td>
+            <td>Tredence</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-it-specialist-tredence-analytics-solutions-private-limited-bengaluru-2-to-5-years-201026009374" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 08:59:46</td>
+            <td><strong>Production Specialist</strong></td>
+            <td>Han Digital Solution (P) Ltd</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-production-specialist-han-digital-solution-bengaluru-1-to-4-years-211026025112" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:00:02</td>
+            <td><strong>Firmware Developer</strong></td>
+            <td>Mirafra Software Technologies Pvt Ltd</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-firmware-developer-naukri-e-hire-campaign-bengaluru-2-to-5-years-211026017594" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:01:02</td>
+            <td><strong>Software Engineer</strong></td>
+            <td>Ninestars Information Technologies</td>
+            <td>Bangalore</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-software-engineer-ninestars-information-technologies-bengaluru-2-to-4-years-211026022974" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:20:14</td>
+            <td><strong>Python Developer</strong></td>
+            <td>Tenacious Hr Solution</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-tenacious-hr-solution-bengaluru-delhi-ncr-mumbai-all-areas-2-to-7-years-211026004474" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:22:54</td>
+            <td><strong>python developer</strong></td>
+            <td>Spigot Software</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-spigot-software-bengaluru-2-to-7-years-011026012242" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:24:21</td>
+            <td><strong>Python Developer - FastAPI / Flask (Product Engineering)</strong></td>
+            <td>I2global Virtual Learning</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-fastapi-flask-product-engineering-i2global-virtual-learning-bengaluru-2-to-4-years-250926013235" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:27:14</td>
+            <td><strong>Python Developer - Data Processing</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-python-developer-data-processing-infosys-noida-hyderabad-bengaluru-2-to-5-years-061026030495" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:29:11</td>
+            <td><strong>Fullstack Developer (Nextjs ,Nodejs,Python)</strong></td>
+            <td>Ramxora Private Limited (Ramxora.AI)</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-fullstack-developer-nextjs-nodejs-python-ramxora-private-limited-ramxora-ai-bengaluru-2-to-3-years-230926007822" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:34:55</td>
+            <td><strong>Devops& Cloud infrastructure Engineer</strong></td>
+            <td>Ramxora Private Limited (Ramxora.Ai)</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-devops-cloud-infrastructure-engineer-ramxora-private-limited-ramxora-ai-bengaluru-2-to-3-years-141026036560" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:35:33</td>
+            <td><strong>Automation Engineer</strong></td>
+            <td>PwC</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-automation-engineer-pwc-hyderabad-chennai-bengaluru-2-to-4-years-071026023451" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:36:31</td>
+            <td><strong>Scenario Validation Engineer ( Autonomous Driving Planner Testing)</strong></td>
+            <td>L&T Technology Services (LTTS)</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-scenario-validation-engineer-autonomous-driving-planner-testing-l-t-technology-services-ltts-bengaluru-2-to-6-years-240926000004" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:42:21</td>
+            <td><strong>React Developer | 2-4 Years | Immediate Joiner | Bangalore</strong></td>
+            <td>Sketch Brahma Technologies</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-react-developer-2-4-years-immediate-joiner-bangalore-sketch-brahma-technologies-bengaluru-2-to-4-years-290926035915" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:42:32</td>
+            <td><strong>Dot Net Developer</strong></td>
+            <td>Hiring For a Well known IT Company</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-dot-net-developer-om-consulting-bengaluru-2-to-6-years-290926019893" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:42:44</td>
+            <td><strong>Talent Acquisition Specialist</strong></td>
+            <td>Ramxora Private Limited (Ramxora Ai)</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-talent-acquisition-specialist-ramxora-private-limited-ramxora-ai-bengaluru-2-to-3-years-290926018579" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:45:01</td>
+            <td><strong>Software Engineer</strong></td>
+            <td>Morningstar</td>
+            <td>Remote</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-software-engineer-morningstar-india-p-ltd-navi-mumbai-2-to-5-years-250926030083" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:55:02</td>
+            <td><strong>MLOps Engineer (AWS, SageMaker, Terraform, DevOps)-L</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-mlops-engineer-aws-sagemaker-terraform-devops-l-infosys-hyderabad-pune-bengaluru-2-to-5-years-260826029763" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:56:36</td>
+            <td><strong>Specialist Programmer (Trainee)</strong></td>
+            <td>Infosys</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-specialist-programmer-trainee-infosys-hyderabad-bengaluru-delhi-ncr-0-to-2-years-151026016759" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:57:00</td>
+            <td><strong>IS Solutions Architect</strong></td>
+            <td>ABB</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-is-solutions-architect-abb-india-limited-bengaluru-2-to-5-years-081026016643" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:57:22</td>
+            <td><strong>Software Development Engineer - Full Stack</strong></td>
+            <td>Datazymes Analytics</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-software-development-engineer-full-stack-datazymes-analytics-bengaluru-2-to-4-years-110626029092" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+        <tr>
+            <td style="font-size: 0.85rem; color: #94a3b8;">2026-10-22 09:58:01</td>
+            <td><strong>Full Stack Developer</strong></td>
+            <td>Tenacious Hr Solution</td>
+            <td>Bengaluru</td>
+            <td><span class="badge badge-success">APPLIED</span></td>
+            <td><a href="https://www.naukri.com/job-listings-full-stack-developer-tenacious-hr-solution-bengaluru-delhi-ncr-mumbai-all-areas-2-to-7-years-191026002855" target="_blank" class="btn btn-secondary">View Job ↗</a></td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
